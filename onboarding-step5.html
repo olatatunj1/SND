@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preferences - Startup Niger Delta</title>
+    <link rel="apple-touch-icon" sizes="76x76" href="images/webclip.svg" type="image/svg">
+    <link rel="icon" href="images/webclip.svg" type="image/svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent: #055F5B;
+            --accent-hover: #044d4a;
+            --border: #475569;
+            --success: #22c55e;
+            --error: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --accent: #055F5B;
+            --accent-hover: #044d4a;
+            --border: #e2e8f0;
+            --success: #22c55e;
+            --error: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .onboarding-container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .onboarding-form-side {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .onboarding-form-container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+        }
+
+        .onboarding-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .onboarding-logo {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .onboarding-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .onboarding-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .progress-container {
+            margin-bottom: 32px;
+        }
+
+        .progress-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .progress-step {
+            flex: 1;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.completed {
+            background: var(--accent);
+        }
+
+        .progress-step.active {
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(13, 114, 111, 0.4);
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .preferences-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .preferences-section {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .preferences-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .preferences-section-title i {
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .preference-group {
+            margin-bottom: 20px;
+        }
+
+        .preference-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .preference-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .preference-description {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            background: var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: var(--accent);
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(24px);
+        }
+
+        .preference-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .preference-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .preference-info {
+            flex: 1;
+        }
+
+        .preference-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .preference-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .preference-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
+            padding-right: 36px;
+        }
+
+        [data-theme="dark"] .preference-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        }
+
+        .preference-select:focus {
+            outline: none;
+            border-color: #055F5B;
+            box-shadow: 0 0 0 3px rgba(5, 95, 91, 0.15);
+        }
+
+        .preference-select.error {
+            border-color: #055F5B;
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .error-close:hover {
+            color: var(--error-text);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .field-error {
+            color: var(--error);
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .field-error.show {
+            display: block;
+        }
+
+        .preference-group.has-error .preference-label {
+            color: var(--error);
+        }
+
+        .preference-select option {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 8px 12px;
+        }
+
+        [data-theme="dark"] .preference-select option {
+            background: #055F5B;
+            color: #055F5B;
+        }
+
+        [data-theme="light"] .preference-select option {
+            background: #ffffff;
+            color: #1e293b;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .checkbox-input {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-primary);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-input.checked {
+            background: var(--accent);
+            border-color: #055F5B;
+        }
+
+        .checkbox-input.checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: var(--text-primary);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .onboarding-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 32px;
+        }
+
+        .onboarding-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 16px rgba(13, 114, 111, 0.3);
+        }
+
+        .onboarding-btn:active {
+            transform: translateY(0);
+        }
+
+        .onboarding-btn.is-loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .onboarding-btn i {
+            font-size: 16px;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent);
+            border-color: #055F5B;
+        }
+
+        .theme-toggle i {
+            font-size: 16px;
+            color: var(--text-primary);
+        }
+
+        .onboarding-visual-side {
+            flex: 1;
+            position: relative;
+            background: linear-gradient(135deg, #055F5B 0%, #184341 50%, #044d4a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .onboarding-visual-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+        }
+
+        .onboarding-visual-content {
+            text-align: center;
+            z-index: 2;
+            padding: 40px;
+        }
+
+        .onboarding-visual-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .onboarding-visual-content p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .onboarding-container {
+                flex-direction: column;
+            }
+
+            .onboarding-visual-side {
+                display: none;
+            }
+
+            .onboarding-form-container {
+                padding: 24px;
+            }
+
+            .theme-toggle {
+                top: 16px;
+                right: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding-container">
+        <div class="onboarding-form-side">
+            <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                <i class="fas fa-moon icon-moon"></i>
+            </button>
+
+            <div class="onboarding-form-container">
+                <div class="onboarding-header">
+                    <div class="onboarding-logo">
+                        <img src="images/Logo.svg" alt="Startup Niger Delta">
+                    </div>
+                    <h1 class="onboarding-title">Preferences</h1>
+                    <p class="onboarding-subtitle">Customize your experience and notification settings</p>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-step completed"></div>
+                        <div class="progress-step completed"></div>
+                        <div class="progress-step completed"></div>
+                        <div class="progress-step completed"></div>
+                        <div class="progress-step active"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span>Step 5 of 5</span>
+                        <span>Almost done!</span>
+                    </div>
+                </div>
+
+                <form class="preferences-form" id="preferences-form">
+                    <!-- Notification Preferences -->
+                    <div class="preferences-section">
+                        <div class="preferences-section-title">
+                            <i class="fas fa-bell"></i>
+                            Notification Preferences
+                        </div>
+                        
+                        <div class="preference-group">
+                            <div class="preference-item">
+                                <div class="preference-info">
+                                    <div class="preference-title">Email Notifications</div>
+                                    <div class="preference-subtitle">Receive updates about your account activity</div>
+                                </div>
+                                <div class="toggle-switch" data-preference="email-notifications"></div>
+                            </div>
+
+                            <div class="preference-item">
+                                <div class="preference-info">
+                                    <div class="preference-title">Push Notifications</div>
+                                    <div class="preference-subtitle">Get instant updates in your browser</div>
+                                </div>
+                                <div class="toggle-switch" data-preference="push-notifications"></div>
+                            </div>
+
+                            <div class="preference-item">
+                                <div class="preference-info">
+                                    <div class="preference-title">SMS Notifications</div>
+                                    <div class="preference-subtitle">Receive text messages for important updates</div>
+                                </div>
+                                <div class="toggle-switch" data-preference="sms-notifications"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Communication Preferences -->
+                    <div class="preferences-section">
+                        <div class="preferences-section-title">
+                            <i class="fas fa-comments"></i>
+                            Communication Preferences
+                        </div>
+                        
+                        <div class="preference-group">
+                            <label class="preference-label">Language *</label>
+                            <div class="preference-description">Choose your preferred language</div>
+                            <div class="select-wrapper">
+                                <select class="preference-select" id="language-select" required>
+                                    <option value="">Select language</option>
+                                    <option value="en">English</option>
+                                    <option value="fr">French</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="pt">Portuguese</option>
+                                    <option value="zh">Chinese</option>
+                                </select>
+                            </div>
+                            <p class="field-error" id="language-error">Please select a language</p>
+                        </div>
+
+                        <div class="preference-group">
+                            <label class="preference-label">Timezone *</label>
+                            <div class="preference-description">Set your local timezone</div>
+                            <div class="select-wrapper">
+                                <select class="preference-select" id="timezone-select" required>
+                                    <option value="">Select timezone</option>
+                                    <option value="UTC">UTC (Coordinated Universal Time)</option>
+                                    <option value="WAT">West Africa Time (UTC+1)</option>
+                                    <option value="CAT">Central Africa Time (UTC+2)</option>
+                                    <option value="EAT">East Africa Time (UTC+3)</option>
+                                    <option value="GMT">Greenwich Mean Time (UTC+0)</option>
+                                    <option value="EST">Eastern Standard Time (UTC-5)</option>
+                                    <option value="CST">Central Standard Time (UTC-6)</option>
+                                    <option value="PST">Pacific Standard Time (UTC-8)</option>
+                                </select>
+                            </div>
+                            <p class="field-error" id="timezone-error">Please select a timezone</p>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Preferences -->
+                    <div class="preferences-section">
+                        <div class="preferences-section-title">
+                            <i class="fas fa-shield-alt"></i>
+                            Privacy Preferences
+                        </div>
+                        
+                        <div class="preference-group">
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <div class="checkbox-input" data-preference="profile-visibility"></div>
+                                    <label class="checkbox-label">Make my profile visible to other members</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <div class="checkbox-input" data-preference="show-email"></div>
+                                    <label class="checkbox-label">Display email address in my profile</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <div class="checkbox-input" data-preference="marketing-emails"></div>
+                                    <label class="checkbox-label">Receive marketing and promotional emails</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <div class="checkbox-input" data-preference="data-analytics"></div>
+                                    <label class="checkbox-label">Help improve our service with usage analytics</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="onboarding-btn" id="submit-button">
+                        <span>Complete Setup</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="onboarding-visual-side">
+            <div class="onboarding-visual-shapes"></div>
+            <div class="onboarding-visual-content">
+                <h2>Almost There!</h2>
+                <p>Set your preferences to personalize your experience and get the most out of our platform.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Management
+        function getStoredTheme() {
+            const theme = localStorage.getItem('theme');
+            return theme || 'dark';
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateThemeIcon(theme);
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = document.querySelector('.theme-toggle i');
+            if (theme === 'light') {
+                icon.className = 'fas fa-moon icon-moon';
+            } else {
+                icon.className = 'fas fa-sun icon-sun';
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = getStoredTheme();
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        }
+
+        // Initialize theme
+        (function() {
+            var storedTheme = getStoredTheme();
+            document.documentElement.setAttribute('data-theme', storedTheme);
+            updateThemeIcon(storedTheme);
+        })();
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        // Preference Management
+        const preferences = {
+            emailNotifications: false,
+            pushNotifications: false,
+            smsNotifications: false,
+            language: '',
+            timezone: '',
+            profileVisibility: false,
+            showEmail: false,
+            marketingEmails: false,
+            dataAnalytics: false
+        };
+
+        // Toggle Switches
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const preference = this.dataset.preference;
+                const isActive = this.classList.contains('active');
+                
+                // Update preferences object
+                const camelCase = preference.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+                preferences[camelCase] = isActive;
+            });
+        });
+
+        // Checkboxes
+        document.querySelectorAll('.checkbox-input').forEach(checkbox => {
+            checkbox.addEventListener('click', function() {
+                this.classList.toggle('checked');
+                const preference = this.dataset.preference;
+                const isChecked = this.classList.contains('checked');
+                
+                // Update preferences object
+                const camelCase = preference.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+                preferences[camelCase] = isChecked;
+            });
+        });
+
+        // Select Dropdowns
+        document.getElementById('language-select').addEventListener('change', function() {
+            preferences.language = this.value;
+        });
+
+        document.getElementById('timezone-select').addEventListener('change', function() {
+            preferences.timezone = this.value;
+        });
+
+        // Form Submission
+        const submitButton = document.getElementById('submit-button');
+        const preferencesForm = document.getElementById('preferences-form');
+
+        function validateForm() {
+            let isValid = true;
+            const errors = [];
+
+            // Clear previous errors
+            document.querySelectorAll('.field-error').forEach(error => {
+                error.classList.remove('show');
+            });
+            document.querySelectorAll('.preference-select').forEach(select => {
+                select.classList.remove('error');
+            });
+            document.querySelectorAll('.preference-group').forEach(group => {
+                group.classList.remove('has-error');
+            });
+
+            // Validate Language (required)
+            if (!preferences.language) {
+                isValid = false;
+                errors.push('language');
+                const languageSelect = document.getElementById('language-select');
+                const languageError = document.getElementById('language-error');
+                const languageGroup = languageSelect.closest('.preference-group');
+                
+                languageSelect.classList.add('error');
+                languageError.classList.add('show');
+                languageGroup.classList.add('has-error');
+            }
+
+            // Validate Timezone (required)
+            if (!preferences.timezone) {
+                isValid = false;
+                errors.push('timezone');
+                const timezoneSelect = document.getElementById('timezone-select');
+                const timezoneError = document.getElementById('timezone-error');
+                const timezoneGroup = timezoneSelect.closest('.preference-group');
+                
+                timezoneSelect.classList.add('error');
+                timezoneError.classList.add('show');
+                timezoneGroup.classList.add('has-error');
+            }
+
+            // Show validation notification if there are errors
+            if (!isValid) {
+                showValidationError(errors);
+            }
+
+            return isValid;
+        }
+
+        function showValidationError(errors) {
+            // Remove existing error notification if any
+            const existingError = document.querySelector('.validation-error-notification');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Create error notification
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'validation-error-notification';
+            errorDiv.innerHTML = `
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="error-content">
+                    <div class="error-title">Required Preferences Missing</div>
+                    <div class="error-message">
+                        Please complete the following required preferences:
+                        <ul class="error-list">
+                            ${errors.includes('language') ? '<li>Language selection is required</li>' : ''}
+                            ${errors.includes('timezone') ? '<li>Timezone selection is required</li>' : ''}
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="error-close" onclick="this.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            // Add to form
+            const form = document.getElementById('preferences-form');
+            form.insertBefore(errorDiv, form.firstChild);
+            
+            // Auto-remove after 8 seconds
+            setTimeout(() => {
+                if (errorDiv.parentElement) {
+                    errorDiv.remove();
+                }
+            }, 8000);
+        }
+
+        function savePreferences() {
+            // Save to localStorage
+            localStorage.setItem('user-preferences', JSON.stringify(preferences));
+            
+            // Save completion status
+            const onboardingData = {
+                completed: true,
+                completedAt: new Date().toISOString(),
+                preferences: preferences
+            };
+            localStorage.setItem('onboarding-completed', JSON.stringify(onboardingData));
+        }
+
+        submitButton.addEventListener('click', function() {
+            if (!validateForm()) {
+                return;
+            }
+            
+            // Show loading state
+            this.classList.add('is-loading');
+            this.querySelector('span').textContent = 'Completing setup...';
+            
+            // Save preferences
+            savePreferences();
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Redirect to dashboard or success page
+                window.location.href = 'dashboard.html';
+            }, 2000);
+        });
+
+        // Load saved preferences if they exist
+        function loadSavedPreferences() {
+            const savedPrefs = localStorage.getItem('user-preferences');
+            if (savedPrefs) {
+                const parsed = JSON.parse(savedPrefs);
+                
+                // Apply saved preferences to UI
+                Object.keys(parsed).forEach(key => {
+                    if (parsed[key] !== undefined) {
+                        preferences[key] = parsed[key];
+                        
+                        // Update UI elements
+                        const kebabCase = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+                        
+                        // Update toggle switches
+                        const toggle = document.querySelector(`[data-preference="${kebabCase}"]`);
+                        if (toggle && toggle.classList.contains('toggle-switch')) {
+                            if (parsed[key]) {
+                                toggle.classList.add('active');
+                            }
+                        }
+                        
+                        // Update checkboxes
+                        const checkbox = document.querySelector(`[data-preference="${kebabCase}"]`);
+                        if (checkbox && checkbox.classList.contains('checkbox-input')) {
+                            if (parsed[key]) {
+                                checkbox.classList.add('checked');
+                            }
+                        }
+                        
+                        // Update selects
+                        if (key === 'language') {
+                            document.getElementById('language-select').value = parsed[key] || '';
+                        } else if (key === 'timezone') {
+                            document.getElementById('timezone-select').value = parsed[key] || '';
+                        }
+                    }
+                });
+            }
+        }
+
+        // Load preferences on page load
+        loadSavedPreferences();
+    </script>
+</body>
+</html>

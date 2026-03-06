@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Document Verification - Startup Niger Delta</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/webclip.svg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --transition-speed: 0.3s;
+        }
+
+        /* Dark Theme (default) */
+        [data-theme="dark"] {
+            --bg-primary: #1b1b1b;
+            --bg-secondary: #222222;
+            --bg-form: linear-gradient(180deg, #2b2b2b 0%, #1b1b1b 100%);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.12);
+            --input-border-hover: rgba(255, 255, 255, 0.2);
+            --input-text: #ffffff;
+            --input-placeholder: rgba(255, 255, 255, 0.35);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --logo-filter: brightness(0) invert(1);
+            --error-bg: rgba(239, 68, 68, 0.1);
+            --error-border: rgba(239, 68, 68, 0.2);
+            --error-text: #fca5a5;
+            --success-bg: rgba(34, 197, 94, 0.1);
+            --success-border: rgba(34, 197, 94, 0.2);
+            --success-text: #86efac;
+            --link-color: #055F5B;
+            --link-hover: #044d4a;
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-form: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --input-bg: #ffffff;
+            --input-border: #e2e8f0;
+            --input-border-hover: #cbd5e1;
+            --input-text: #1e293b;
+            --input-placeholder: #94a3b8;
+            --card-border: #e2e8f0;
+            --card-bg: #ffffff;
+            --logo-filter: none;
+            --error-bg: #fef2f2;
+            --error-border: #fecaca;
+            --error-text: #dc2626;
+            --success-bg: #f0fdf4;
+            --success-border: #bbf7d0;
+            --success-text: #16a34a;
+            --link-color: #055F5B;
+            --link-hover: #044d4a;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            transition: background var(--transition-speed) ease;
+        }
+
+        .onboarding-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .onboarding-form-side {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 60px;
+            background: var(--bg-form);
+            position: relative;
+            overflow-y: auto;
+            transition: background var(--transition-speed) ease;
+        }
+
+        .onboarding-visual-side {
+            width: 50%;
+            background: linear-gradient(135deg, #055F5B 0%, #184341 50%, #044d4a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .onboarding-visual-side #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .onboarding-visual-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #055F5B;
+            padding: 40px;
+            max-width: 450px;
+        }
+
+        .onboarding-visual-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .onboarding-visual-content p {
+            font-size: 17px;
+            opacity: 0.9;
+            line-height: 1.7;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        .onboarding-card {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 32px;
+        }
+
+        .progress-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .progress-step {
+            width: 40px;
+            height: 4px;
+            background: var(--input-border);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: #055F5B;
+        }
+
+        .progress-step.completed {
+            background: #22c55e;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--link-color);
+            color: var(--link-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-sun {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-moon {
+            opacity: 0;
+            transform: rotate(-90deg);
+        }
+
+        [data-theme="light"] .theme-toggle .icon-sun {
+            opacity: 0;
+            transform: rotate(90deg);
+        }
+
+        [data-theme="light"] .theme-toggle .icon-moon {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        .onboarding-logo {
+            margin-bottom: 32px;
+        }
+
+        .onboarding-logo img {
+            height: 36px;
+            width: auto;
+            filter: var(--logo-filter);
+            transition: filter var(--transition-speed) ease;
+        }
+
+        .onboarding-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .onboarding-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        /* Form Elements */
+        .onboarding-form {
+            margin-bottom: 20px;
+        }
+
+        /* Document Upload Areas */
+        .document-upload-section {
+            margin-bottom: 24px;
+        }
+
+        .document-upload-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .document-upload-title i {
+            color: var(--link-color);
+            font-size: 18px;
+        }
+
+        .document-upload-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .document-upload-item {
+            border: 2px dashed var(--input-border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            background: var(--input-bg);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .document-upload-item:hover {
+            border-color: var(--link-color);
+            background: rgba(13, 114, 111, 0.05);
+        }
+
+        .document-upload-item.has-file {
+            border-color: var(--success-border);
+            background: var(--success-bg);
+            border-style: solid;
+        }
+
+        .document-upload-item.error {
+            border-color: var(--error-border);
+            background: var(--error-bg);
+            border-style: solid;
+        }
+
+        .upload-icon {
+            font-size: 32px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .document-upload-item:hover .upload-icon {
+            color: var(--link-color);
+        }
+
+        .document-upload-item.has-file .upload-icon {
+            color: var(--success-text);
+        }
+
+        .document-upload-item.error .upload-icon {
+            color: var(--error-text);
+        }
+
+        .upload-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .upload-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .uploaded-file {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .uploaded-file-icon {
+            font-size: 24px;
+            color: var(--success-text);
+        }
+
+        .uploaded-file-info {
+            flex: 1;
+        }
+
+        .uploaded-file-name {
+            font-size: 13px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .uploaded-file-size {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .remove-file {
+            background: none;
+            border: none;
+            color: var(--error-text);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .remove-file:hover {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        /* Verification Status */
+        .verification-status {
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+        }
+
+        .status-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .status-icon {
+            font-size: 20px;
+        }
+
+        .status-icon.pending {
+            color: #f59e0b;
+        }
+
+        .status-icon.verified {
+            color: var(--success-text);
+        }
+
+        .status-icon.error {
+            color: var(--error-text);
+        }
+
+        .status-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .status-message {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Button */
+        .onboarding-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #055F5B 0%, #184341 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .onboarding-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .onboarding-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(13, 114, 111, 0.4);
+        }
+
+        .onboarding-btn:hover::before {
+            left: 100%;
+        }
+
+        .onboarding-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(13, 114, 111, 0.2);
+        }
+
+        .onboarding-btn.is-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .onboarding-btn.is-loading::after {
+            content: '';
+            width: 18px;
+            height: 18px;
+            border: 2px solid transparent;
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .onboarding-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .onboarding-back-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+
+        .onboarding-back-btn:hover {
+            color: var(--link-color);
+        }
+
+        /* Mobile */
+        @media (max-width: 992px) {
+            .onboarding-form-side {
+                width: 55%;
+                padding: 30px 40px;
+            }
+            .onboarding-visual-side {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .onboarding-container {
+                flex-direction: column;
+            }
+
+            .onboarding-form-side {
+                width: 100%;
+                min-height: 100vh;
+                padding: 24px 20px;
+            }
+
+            .onboarding-visual-side {
+                display: none;
+            }
+
+            .onboarding-card {
+                max-width: 100%;
+            }
+
+            .onboarding-title {
+                font-size: 24px;
+            }
+
+            .theme-toggle {
+                top: 16px;
+                right: 16px;
+            }
+
+            .document-upload-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dropdown Styling */
+        .document-dropdown {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            background: var(--input-bg);
+            color: var(--input-text);
+            font-size: 14px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
+            padding-right: 36px;
+        }
+
+        [data-theme="dark"] .document-dropdown {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        }
+
+        .document-dropdown:focus {
+            outline: none;
+            border-color: #055F5B;
+            box-shadow: 0 0 0 3px rgba(5, 95, 91, 0.15);
+        }
+
+        .document-dropdown option {
+            background: var(--input-bg);
+            color: var(--input-text);
+            padding: 8px 12px;
+        }
+
+        [data-theme="dark"] .document-dropdown option {
+            background: #2b2b2b;
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .document-dropdown option {
+            background: #ffffff;
+            color: #1e293b;
+        }
+
+        /* Uploaded Documents Section */
+        .verification-status .uploaded-documents-section {
+            margin-top: 16px;
+            margin-bottom: 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        [data-theme="light"] .verification-status .uploaded-documents-section {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .verification-status .uploaded-documents-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .verification-status .uploaded-documents-title i {
+            color: var(--success-text);
+            font-size: 16px;
+        }
+
+        .verification-status .uploaded-documents-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .verification-status .uploaded-document-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        [data-theme="light"] .verification-status .uploaded-document-item {
+            background: rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .verification-status .uploaded-document-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        [data-theme="light"] .verification-status .uploaded-document-item:hover {
+            background: rgba(0, 0, 0, 0.03);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+
+        .verification-status .uploaded-document-icon {
+            font-size: 16px;
+            color: var(--success-text);
+            flex-shrink: 0;
+        }
+
+        .verification-status .uploaded-document-info {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .verification-status .uploaded-document-name {
+            font-size: 11px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 120px;
+        }
+
+        .verification-status .uploaded-document-type {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: capitalize;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 120px;
+        }
+
+        .verification-status .remove-uploaded-doc {
+            background: none;
+            border: none;
+            color: var(--error-text);
+            cursor: pointer;
+            font-size: 11px;
+            padding: 2px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .verification-status .remove-uploaded-doc:hover {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        /* Upload Progress Styles */
+        .verification-status .upload-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--link-color), var(--success-text));
+            border-radius: 0 0 6px 6px;
+            transition: width 0.3s ease;
+            z-index: 1;
+        }
+
+        .verification-status .upload-progress.complete {
+            width: 100%;
+            animation: fadeOut 0.5s ease 0.5s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+        }
+
+        .verification-status .uploaded-document-item.uploading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verification-status .uploaded-document-item.uploading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(13, 114, 111, 0.05);
+            z-index: 0;
+        }
+
+        .verification-status .uploaded-document-item.uploading .uploaded-document-icon {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Validation Error Notification */
+        .validation-error-notification {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--error-border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            animation: slideDown 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--error-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .error-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .error-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--error-text);
+            margin-bottom: 6px;
+        }
+
+        .error-message {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .error-list {
+            margin: 8px 0 0 0;
+            padding-left: 16px;
+            color: var(--error-text);
+            font-weight: 500;
+        }
+
+        .error-list li {
+            margin-bottom: 4px;
+        }
+
+        .error-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .error-close:hover {
+            color: var(--error-text);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .add-more-btn {
+            background: none;
+            border: 1px dashed var(--input-border);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .add-more-btn:hover {
+            border-color: var(--link-color);
+            color: var(--link-color);
+            background: rgba(13, 114, 111, 0.05);
+        }
+
+        .is-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding-container">
+        <div class="onboarding-form-side">
+            <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                <i class="fas fa-sun icon-sun"></i>
+                <i class="fas fa-moon icon-moon"></i>
+            </button>
+
+            <div class="onboarding-card">
+                <div class="onboarding-logo">
+                    <a href="index.html">
+                        <img src="images/Logo.svg" alt="Startup Niger Delta">
+                    </a>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-step completed"></div>
+                        <div class="progress-step completed"></div>
+                        <div class="progress-step completed"></div>
+                        <div class="progress-step active"></div>
+                        <div class="progress-step"></div>
+                    </div>
+                    <div class="progress-text">Step 4 of 5: Document Verification</div>
+                </div>
+
+                <div class="onboarding-nav">
+                    <button type="button" class="onboarding-back-btn" onclick="window.location.href='onboarding-step3.html'">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                </div>
+
+                <h1 class="onboarding-title">Document Verification</h1>
+                <p class="onboarding-subtitle">Upload required documents to verify your identity and organization</p>
+
+                <form class="onboarding-form" id="verification-form">
+                    <!-- Verification Status -->
+                    <div class="verification-status">
+                        <div class="status-header">
+                            <i class="fas fa-clock status-icon pending"></i>
+                            <div class="status-title">Verification Pending</div>
+                        </div>
+                        <div class="status-message">
+                            Upload your documents below. Our team will review them within 24-48 hours.
+                        </div>
+                        
+                        <!-- Uploaded Documents Section -->
+                        <div class="uploaded-documents-section" id="uploaded-documents-section" style="display: none; margin-top: 16px;">
+                            <div class="uploaded-documents-title">
+                                <i class="fas fa-check-circle"></i>
+                                Uploaded Documents
+                            </div>
+                            <div class="uploaded-documents-grid" id="uploaded-documents-grid">
+                                <!-- Uploaded documents will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Documents -->
+                    <div class="document-upload-section">
+                        <div class="document-upload-title">
+                            <i class="fas fa-user"></i>
+                            Personal Identity Documents
+                        </div>
+                        <select class="document-dropdown" id="personal-doc-dropdown">
+                            <option value="">Select personal document type</option>
+                            <option value="id-card">Government ID Card</option>
+                            <option value="passport">Passport</option>
+                        </select>
+                        
+                        <div class="document-upload-grid">
+                            <div class="document-upload-item is-hidden" data-document-type="id-card" data-category="personal">
+                                <i class="fas fa-id-card upload-icon"></i>
+                                <div class="upload-text">Government ID Card</div>
+                                <div class="upload-hint">PNG, JPG, PDF (Max 5MB)</div>
+                                <input type="file" class="file-input" accept="image/*,.pdf" data-field="idCard">
+                                <div class="uploaded-file is-hidden">
+                                    <i class="fas fa-file uploaded-file-icon"></i>
+                                    <div class="uploaded-file-info">
+                                        <div class="uploaded-file-name"></div>
+                                        <div class="uploaded-file-size"></div>
+                                    </div>
+                                    <button type="button" class="remove-file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="document-upload-item is-hidden" data-document-type="passport" data-category="personal">
+                                <i class="fas fa-passport upload-icon"></i>
+                                <div class="upload-text">Passport</div>
+                                <div class="upload-hint">PNG, JPG, PDF (Max 5MB)</div>
+                                <input type="file" class="file-input" accept="image/*,.pdf" data-field="passport">
+                                <div class="uploaded-file is-hidden">
+                                    <i class="fas fa-file uploaded-file-icon"></i>
+                                    <div class="uploaded-file-info">
+                                        <div class="uploaded-file-name"></div>
+                                        <div class="uploaded-file-size"></div>
+                                    </div>
+                                    <button type="button" class="remove-file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organization Documents -->
+                    <div class="document-upload-section" id="org-documents">
+                        <div class="document-upload-title">
+                            <i class="fas fa-building"></i>
+                            Organization Documents
+                        </div>
+                        <select class="document-dropdown" id="org-doc-dropdown">
+                            <option value="">Select organization document type</option>
+                            <option value="certificate">Business Registration Certificate</option>
+                            <option value="tax">Tax Clearance Certificate</option>
+                            <option value="org-identity">Organization Identity Document</option>
+                        </select>
+                        
+                        <div class="document-upload-grid">
+                            <div class="document-upload-item is-hidden" data-document-type="certificate" data-category="organization">
+                                <i class="fas fa-certificate upload-icon"></i>
+                                <div class="upload-text">Business Registration Certificate</div>
+                                <div class="upload-hint">PNG, JPG, PDF (Max 5MB)</div>
+                                <input type="file" class="file-input" accept="image/*,.pdf" data-field="businessCertificate">
+                                <div class="uploaded-file is-hidden">
+                                    <i class="fas fa-file uploaded-file-icon"></i>
+                                    <div class="uploaded-file-info">
+                                        <div class="uploaded-file-name"></div>
+                                        <div class="uploaded-file-size"></div>
+                                    </div>
+                                    <button type="button" class="remove-file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="document-upload-item is-hidden" data-document-type="tax" data-category="organization">
+                                <i class="fas fa-file-invoice upload-icon"></i>
+                                <div class="upload-text">Tax Clearance Certificate</div>
+                                <div class="upload-hint">PNG, JPG, PDF (Max 5MB)</div>
+                                <input type="file" class="file-input" accept="image/*,.pdf" data-field="taxClearance">
+                                <div class="uploaded-file is-hidden">
+                                    <i class="fas fa-file uploaded-file-icon"></i>
+                                    <div class="uploaded-file-info">
+                                        <div class="uploaded-file-name"></div>
+                                        <div class="uploaded-file-size"></div>
+                                    </div>
+                                    <button type="button" class="remove-file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="document-upload-item is-hidden" data-document-type="org-identity" data-category="organization">
+                                <i class="fas fa-building-user upload-icon"></i>
+                                <div class="upload-text">Organization Identity Document</div>
+                                <div class="upload-hint">PNG, JPG, PDF (Max 5MB)</div>
+                                <input type="file" class="file-input" accept="image/*,.pdf" data-field="orgIdentity">
+                                <div class="uploaded-file is-hidden">
+                                    <i class="fas fa-file uploaded-file-icon"></i>
+                                    <div class="uploaded-file-info">
+                                        <div class="uploaded-file-name"></div>
+                                        <div class="uploaded-file-size"></div>
+                                    </div>
+                                    <button type="button" class="remove-file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Documents -->
+                    <div class="document-upload-section">
+                        <div class="document-upload-title">
+                            <i class="fas fa-plus-circle"></i>
+                            Additional Documents (Optional)
+                        </div>
+                        <select class="document-dropdown" id="additional-doc-dropdown">
+                            <option value="">Select additional document type</option>
+                            <option value="company-cert">Company Certificate</option>
+                            <option value="financial">Financial Statements</option>
+                            <option value="other">Other Document</option>
+                        </select>
+                        
+                        <div class="document-upload-grid">
+                            <div class="document-upload-item is-hidden" data-document-type="financial" data-category="additional">
+                                <i class="fas fa-chart-line upload-icon"></i>
+                                <div class="upload-text">Financial Statements</div>
+                                <div class="upload-hint">PDF, Excel (Max 10MB)</div>
+                                <input type="file" class="file-input" accept=".pdf,.xls,.xlsx" data-field="financialStatements">
+                                <div class="uploaded-file is-hidden">
+                                    <i class="fas fa-file uploaded-file-icon"></i>
+                                    <div class="uploaded-file-info">
+                                        <div class="uploaded-file-name"></div>
+                                        <div class="uploaded-file-size"></div>
+                                    </div>
+                                    <button type="button" class="remove-file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="document-upload-item is-hidden" data-document-type="company-cert" data-category="additional">
+                                <i class="fas fa-certificate upload-icon"></i>
+                                <div class="upload-text">Company Certificate</div>
+                                <div class="upload-hint">PDF, Image (Max 5MB)</div>
+                                <input type="file" class="file-input" accept=".pdf,.png,.jpg,.jpeg" data-field="companyCertificate">
+                                <div class="uploaded-file is-hidden">
+                                    <i class="fas fa-file uploaded-file-icon"></i>
+                                    <div class="uploaded-file-info">
+                                        <div class="uploaded-file-name"></div>
+                                        <div class="uploaded-file-size"></div>
+                                    </div>
+                                    <button type="button" class="remove-file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="document-upload-item is-hidden" data-document-type="other" data-category="additional">
+                                <i class="fas fa-file-alt upload-icon"></i>
+                                <div class="upload-text">Other Document</div>
+                                <div class="upload-hint">PDF, Image, Word, Excel (Max 10MB)</div>
+                                <input type="file" class="file-input" accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg" data-field="otherDocument">
+                                <div class="uploaded-file is-hidden">
+                                    <i class="fas fa-file uploaded-file-icon"></i>
+                                    <div class="uploaded-file-info">
+                                        <div class="uploaded-file-name"></div>
+                                        <div class="uploaded-file-size"></div>
+                                    </div>
+                                    <button type="button" class="remove-file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="onboarding-btn" id="submit-button">
+                        <span>Submit for Verification</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="onboarding-visual-side">
+            <div class="onboarding-visual-shapes"></div>
+            <div id="particles-js"></div>
+            <div class="onboarding-visual-content">
+                <h2>Secure Verification</h2>
+                <p>Upload your documents to complete the verification process. All files are encrypted and securely stored.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Management
+        function getStoredTheme() {
+            return localStorage.getItem('startup-theme') || 'dark';
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('startup-theme', theme);
+        }
+
+        function toggleTheme() {
+            var currentTheme = document.documentElement.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        }
+
+        // Initialize theme
+        (function() {
+            var storedTheme = getStoredTheme();
+            document.documentElement.setAttribute('data-theme', storedTheme);
+        })();
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        // File Upload Management
+        const uploadedFiles = [];
+        const maxFileSize = 10 * 1024 * 1024; // 10MB for larger files, 5MB for ID docs
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function validateFile(file, type) {
+            const maxSize = type === 'financial' || type === 'other' ? 10 * 1024 * 1024 : 5 * 1024 * 1024;
+            
+            if (file.size > maxSize) {
+                return { valid: false, error: `File size must be less than ${formatFileSize(maxSize)}` };
+            }
+            
+            return { valid: true };
+        }
+
+        function getDocumentIcon(type) {
+            const icons = {
+                'id-card': 'fa-id-card',
+                'passport': 'fa-passport',
+                'certificate': 'fa-certificate',
+                'tax': 'fa-file-invoice',
+                'org-identity': 'fa-building-user',
+                'financial': 'fa-chart-line',
+                'other': 'fa-file-alt'
+            };
+            return icons[type] || 'fa-file';
+        }
+
+        function getDocumentDisplayName(type) {
+            const names = {
+                'id-card': 'Government ID Card',
+                'passport': 'Passport',
+                'certificate': 'Business Registration Certificate',
+                'tax': 'Tax Clearance Certificate',
+                'org-identity': 'Organization Identity Document',
+                'financial': 'Financial Statements',
+                'other': 'Other Document'
+            };
+            return names[type] || 'Document';
+        }
+
+        function addUploadedDocument(file, type, category) {
+            const docId = Date.now() + Math.random();
+            const document = {
+                id: docId,
+                file: file,
+                type: type,
+                category: category,
+                name: file.name,
+                size: file.size,
+                uploadedAt: new Date().toISOString()
+            };
+            
+            uploadedFiles.push(document);
+            displayUploadedDocuments();
+            return document;
+        }
+
+        function removeUploadedDocument(docId) {
+            const index = uploadedFiles.findIndex(doc => doc.id === docId);
+            if (index > -1) {
+                uploadedFiles.splice(index, 1);
+                displayUploadedDocuments();
+            }
+        }
+
+        function displayUploadedDocuments() {
+            const section = document.getElementById('uploaded-documents-section');
+            const grid = document.getElementById('uploaded-documents-grid');
+            
+            if (uploadedFiles.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+            
+            section.style.display = 'block';
+            grid.innerHTML = '';
+            
+            // Group documents by category
+            const groupedDocs = {};
+            uploadedFiles.forEach(doc => {
+                if (!groupedDocs[doc.category]) {
+                    groupedDocs[doc.category] = [];
+                }
+                groupedDocs[doc.category].push(doc);
+            });
+            
+            // Display documents by category
+            Object.keys(groupedDocs).forEach(category => {
+                groupedDocs[category].forEach(doc => {
+                    const docElement = createUploadedDocumentElement(doc);
+                    grid.appendChild(docElement);
+                });
+            });
+        }
+
+        function createUploadedDocumentElement(doc) {
+            const div = document.createElement('div');
+            div.className = 'uploaded-document-item';
+            div.innerHTML = `
+                <i class="fas ${getDocumentIcon(doc.type)} uploaded-document-icon"></i>
+                <div class="uploaded-document-info">
+                    <div class="uploaded-document-name" title="${doc.name}">${doc.name}</div>
+                    <div class="uploaded-document-type">${getDocumentDisplayName(doc.type)}</div>
+                </div>
+                <button type="button" class="remove-uploaded-doc" onclick="removeUploadedDocument(${doc.id})">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="upload-progress" id="progress-${doc.id}"></div>
+            `;
+            return div;
+        }
+
+        function simulateUploadProgress(docId, callback) {
+            const progressBar = document.getElementById(`progress-${docId}`);
+            if (!progressBar) return;
+            
+            const documentItem = progressBar.closest('.uploaded-document-item');
+            documentItem.classList.add('uploading');
+            
+            let progress = 0;
+            // Simulate slower, more realistic upload speeds
+            const baseSpeed = Math.random() * 15 + 5; // 5-20% increments
+            const uploadDuration = Math.random() * 3000 + 2000; // 2-5 seconds total
+            
+            const interval = setInterval(() => {
+                // Slow down as we progress (simulates real upload behavior)
+                const speedMultiplier = progress > 80 ? 0.3 : (progress > 50 ? 0.6 : 1);
+                const increment = baseSpeed * speedMultiplier;
+                
+                progress += increment;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    
+                    // Show complete state
+                    progressBar.classList.add('complete');
+                    documentItem.classList.remove('uploading');
+                    
+                    // Remove progress bar after animation
+                    setTimeout(() => {
+                        progressBar.remove();
+                        if (callback) callback();
+                    }, 1000);
+                }
+                
+                progressBar.style.width = `${progress}%`;
+            }, 300); // Update every 300ms for smoother animation
+        }
+
+        function handleFileUpload(uploadItem, file) {
+            const documentType = uploadItem.dataset.documentType;
+            const category = uploadItem.dataset.category;
+            const validation = validateFile(file, documentType);
+            
+            if (!validation.valid) {
+                uploadItem.classList.add('error');
+                setTimeout(() => uploadItem.classList.remove('error'), 3000);
+                return false;
+            }
+
+            // Add to uploaded documents immediately
+            const document = addUploadedDocument(file, documentType, category);
+            
+            // Update UI
+            uploadItem.classList.add('has-file');
+            uploadItem.classList.remove('error');
+            
+            const uploadedFileDiv = uploadItem.querySelector('.uploaded-file');
+            const fileName = uploadedFileDiv.querySelector('.uploaded-file-name');
+            const fileSize = uploadedFileDiv.querySelector('.uploaded-file-size');
+            
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            uploadedFileDiv.classList.remove('is-hidden');
+            
+            // Start upload progress simulation (independent for each file)
+            simulateUploadProgress(document.id, () => {
+                // Only reset dropdown and hide card after this specific upload completes
+                const dropdown = uploadItem.closest('.document-upload-section').querySelector('.document-dropdown');
+                dropdown.value = '';
+                
+                // Hide upload card after successful upload
+                setTimeout(() => {
+                    uploadItem.classList.add('is-hidden');
+                }, 500);
+            });
+            
+            // Reset dropdown immediately to allow new uploads
+            // This allows multiple concurrent uploads
+            const dropdown = uploadItem.closest('.document-upload-section').querySelector('.document-dropdown');
+            dropdown.value = '';
+            
+            // Show upload card again for immediate next upload
+            uploadItem.classList.remove('has-file');
+            uploadedFileDiv.classList.add('is-hidden');
+            const fileInput = uploadItem.querySelector('.file-input');
+            fileInput.value = '';
+            
+            return true;
+        }
+
+        function removeFile(uploadItem) {
+            const documentType = uploadItem.dataset.documentType;
+            
+            // Remove from uploaded files
+            const toRemove = uploadedFiles.filter(doc => doc.type === documentType);
+            toRemove.forEach(doc => removeUploadedDocument(doc.id));
+            
+            // Update UI
+            uploadItem.classList.remove('has-file');
+            const uploadedFileDiv = uploadItem.querySelector('.uploaded-file');
+            uploadedFileDiv.classList.add('is-hidden');
+            
+            // Clear file input
+            const fileInput = uploadItem.querySelector('.file-input');
+            fileInput.value = '';
+        }
+
+        // Dropdown Selection Management
+        function showUploadCard(category, documentType) {
+            // Hide all cards in the category
+            document.querySelectorAll(`[data-category="${category}"]`).forEach(card => {
+                card.classList.add('is-hidden');
+            });
+            
+            // Show the selected card
+            const selectedCard = document.querySelector(`[data-document-type="${documentType}"]`);
+            if (selectedCard) {
+                selectedCard.classList.remove('is-hidden');
+            }
+        }
+
+        function hideUploadCard(category, documentType) {
+            const card = document.querySelector(`[data-document-type="${documentType}"]`);
+            if (card) {
+                card.classList.add('is-hidden');
+                // Clear any uploaded file
+                removeFile(card);
+            }
+        }
+
+        // Setup dropdown handlers
+        document.getElementById('personal-doc-dropdown').addEventListener('change', function(e) {
+            const value = e.target.value;
+            if (value) {
+                showUploadCard('personal', value);
+            } else {
+                // Hide all personal cards when no selection
+                document.querySelectorAll('[data-category="personal"]').forEach(card => {
+                    card.classList.add('is-hidden');
+                    removeFile(card);
+                });
+            }
+        });
+
+        document.getElementById('org-doc-dropdown').addEventListener('change', function(e) {
+            const value = e.target.value;
+            if (value) {
+                showUploadCard('organization', value);
+            } else {
+                // Hide all organization cards when no selection
+                document.querySelectorAll('[data-category="organization"]').forEach(card => {
+                    card.classList.add('is-hidden');
+                    removeFile(card);
+                });
+            }
+        });
+
+        document.getElementById('additional-doc-dropdown').addEventListener('change', function(e) {
+            const value = e.target.value;
+            if (value) {
+                showUploadCard('additional', value);
+            } else {
+                // Hide all additional cards when no selection
+                document.querySelectorAll('[data-category="additional"]').forEach(card => {
+                    card.classList.add('is-hidden');
+                    removeFile(card);
+                });
+            }
+        });
+
+        // Setup file upload handlers
+        document.querySelectorAll('.document-upload-item').forEach(item => {
+            const fileInput = item.querySelector('.file-input');
+            const removeBtn = item.querySelector('.remove-file');
+            
+            // Click to upload
+            item.addEventListener('click', function(e) {
+                if (e.target.closest('.remove-file')) return;
+                fileInput.click();
+            });
+            
+            // File selection
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    handleFileUpload(item, file);
+                }
+            });
+            
+            // Remove file
+            removeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                removeFile(item);
+            });
+            
+            // Drag and drop
+            item.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                item.style.borderColor = 'var(--link-color)';
+                item.style.background = 'rgba(13, 114, 111, 0.1)';
+            });
+            
+            item.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                item.style.borderColor = '';
+                item.style.background = '';
+            });
+            
+            item.addEventListener('drop', function(e) {
+                e.preventDefault();
+                item.style.borderColor = '';
+                item.style.background = '';
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFileUpload(item, files[0]);
+                }
+            });
+        });
+
+        // Get user role and setup form
+        function getUserRole() {
+            const roleData = localStorage.getItem('onboarding-role');
+            if (roleData) {
+                return JSON.parse(roleData);
+            }
+            return { role: 'startup', investorType: null };
+        }
+
+        function setupFormForRole() {
+            const userRole = getUserRole();
+            const orgDocuments = document.getElementById('org-documents');
+            
+            if (userRole.role === 'startup') {
+                // Show organization documents for startups
+                orgDocuments.style.display = 'block';
+            } else if (userRole.role === 'investor') {
+                // Hide organization documents for individual investors
+                orgDocuments.style.display = 'none';
+            }
+        }
+
+        // Form submission
+        const submitButton = document.getElementById('submit-button');
+        const verificationForm = document.getElementById('verification-form');
+
+        function validateForm() {
+            const userRole = getUserRole();
+            const requiredCategories = ['personal']; // Personal documents always required
+            
+            if (userRole.role === 'startup') {
+                requiredCategories.push('organization'); // Organization documents required for startups
+            }
+            
+            let hasErrors = false;
+            const errorMessages = [];
+            
+            // Check if at least one document from each required category is uploaded
+            for (const category of requiredCategories) {
+                const hasRequiredDoc = uploadedFiles.some(doc => doc.category === category);
+                if (!hasRequiredDoc) {
+                    hasErrors = true;
+                    const dropdown = document.querySelector(`#${category === 'personal' ? 'personal-doc-dropdown' : 'org-doc-dropdown'}`);
+                    dropdown.style.borderColor = 'var(--error-border)';
+                    dropdown.style.backgroundColor = 'rgba(239, 68, 68, 0.05)';
+                    
+                    // Add error message
+                    const categoryName = category === 'personal' ? 'Personal Identity Document' : 'Organization Document';
+                    errorMessages.push(`• ${categoryName} is required`);
+                    
+                    setTimeout(() => {
+                        dropdown.style.borderColor = '';
+                        dropdown.style.backgroundColor = '';
+                    }, 5000);
+                }
+            }
+            
+            // Show error notification if there are errors
+            if (hasErrors) {
+                showValidationError(errorMessages);
+            }
+            
+            return !hasErrors;
+        }
+
+        function showValidationError(messages) {
+            // Remove existing error notification if any
+            const existingError = document.querySelector('.validation-error-notification');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Create error notification
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'validation-error-notification';
+            errorDiv.innerHTML = `
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="error-content">
+                    <div class="error-title">Required Documents Missing</div>
+                    <div class="error-message">
+                        Please upload the following required documents:
+                        <ul class="error-list">
+                            ${messages.map(msg => `<li>${msg.replace('• ', '')}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="error-close" onclick="this.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            // Add to form
+            const form = document.getElementById('verification-form');
+            form.insertBefore(errorDiv, form.firstChild);
+            
+            // Auto-remove after 8 seconds
+            setTimeout(() => {
+                if (errorDiv.parentElement) {
+                    errorDiv.remove();
+                }
+            }, 8000);
+        }
+
+        submitButton.addEventListener('click', function() {
+            if (!validateForm()) {
+                return;
+            }
+            
+            if (uploadedFiles.length === 0) {
+                return;
+            }
+            
+            // Show loading state
+            this.classList.add('is-loading');
+            this.querySelector('span').textContent = 'Submitting...';
+            
+            // Collect file data
+            const formData = {
+                documents: uploadedFiles.map(doc => ({
+                    id: doc.id,
+                    name: doc.name,
+                    size: doc.size,
+                    type: doc.type,
+                    category: doc.category,
+                    uploadedAt: doc.uploadedAt
+                })),
+                submittedAt: new Date().toISOString()
+            };
+            
+            // Store data
+            localStorage.setItem('onboarding-verification', JSON.stringify(formData));
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Redirect to next step
+                window.location.href = 'onboarding-step5.html';
+            }, 2000);
+        });
+
+        // Initialize
+        window.addEventListener('load', function() {
+            setupFormForRole();
+            
+            // Restore uploaded files if available
+            const storedData = localStorage.getItem('onboarding-verification');
+            if (storedData) {
+                const data = JSON.parse(storedData);
+                // Note: In a real app, you'd need to re-upload files or handle them differently
+                // For demo purposes, we'll just show the UI state
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+                    "push": { "particles_nb": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>

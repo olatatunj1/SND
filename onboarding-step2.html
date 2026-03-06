@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Basic Profile - Startup Niger Delta</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/webclip.svg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --transition-speed: 0.3s;
+        }
+
+        /* Dark Theme (default) */
+        [data-theme="dark"] {
+            --bg-primary: #1b1b1b;
+            --bg-secondary: #222222;
+            --bg-form: linear-gradient(180deg, #2b2b2b 0%, #1b1b1b 100%);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.12);
+            --input-border-hover: rgba(255, 255, 255, 0.2);
+            --input-text: #ffffff;
+            --input-placeholder: rgba(255, 255, 255, 0.35);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --logo-filter: brightness(0) invert(1);
+            --error-bg: rgba(239, 68, 68, 0.1);
+            --error-border: rgba(239, 68, 68, 0.2);
+            --error-text: #fca5a5;
+            --link-color: #055F5B;
+            --link-hover: #044d4a;
+            --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-form: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --input-bg: #ffffff;
+            --input-border: #e2e8f0;
+            --input-border-hover: #cbd5e1;
+            --input-text: #1e293b;
+            --input-placeholder: #94a3b8;
+            --card-border: #e2e8f0;
+            --card-bg: #ffffff;
+            --logo-filter: none;
+            --error-bg: #fef2f2;
+            --error-border: #fecaca;
+            --error-text: #dc2626;
+            --link-color: #055F5B;
+            --link-hover: #044d4a;
+            --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            transition: background var(--transition-speed) ease;
+        }
+
+        .onboarding-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .onboarding-form-side {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 60px;
+            background: var(--bg-form);
+            position: relative;
+            overflow-y: auto;
+            transition: background var(--transition-speed) ease;
+        }
+
+        .onboarding-visual-side {
+            width: 50%;
+            background: linear-gradient(135deg, #055F5B 0%, #184341 50%, #044d4a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .onboarding-visual-side #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .onboarding-visual-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 40px;
+            max-width: 450px;
+        }
+
+        .onboarding-visual-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .onboarding-visual-content p {
+            font-size: 17px;
+            opacity: 0.9;
+            line-height: 1.7;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        .onboarding-card {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 32px;
+        }
+
+        .progress-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .progress-step {
+            width: 40px;
+            height: 4px;
+            background: var(--input-border);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: #055F5B;
+        }
+
+        .progress-step.completed {
+            background: #055F5B;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--link-color);
+            color: var(--link-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-sun {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-moon {
+            opacity: 0;
+            transform: rotate(-90deg);
+        }
+
+        [data-theme="light"] .theme-toggle .icon-sun {
+            opacity: 0;
+            transform: rotate(90deg);
+        }
+
+        [data-theme="light"] .theme-toggle .icon-moon {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        .onboarding-logo {
+            margin-bottom: 32px;
+        }
+
+        .onboarding-logo img {
+            height: 36px;
+            width: auto;
+            filter: var(--logo-filter);
+            transition: filter var(--transition-speed) ease;
+        }
+
+        .onboarding-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .onboarding-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        /* Form Elements */
+        .onboarding-form {
+            margin-bottom: 20px;
+        }
+
+        .onboarding-input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .onboarding-input-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .onboarding-input,
+        .onboarding-select {
+            width: 100%;
+            padding: 14px 40px 14px 44px;
+            border: 1px solid var(--input-border);
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--input-text);
+            background: var(--input-bg);
+            transition: all 0.2s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .onboarding-select:focus {
+            outline: none;
+            border-color: #055F5B;
+            box-shadow: 0 0 0 3px rgba(5, 95, 91, 0.15);
+        }
+
+        [data-theme="light"] .onboarding-select:focus {
+            background: #ffffff;
+        }
+
+        .onboarding-select:hover:not(:focus) {
+            border-color: var(--input-border-hover);
+        }
+
+        /* Dropdown options styling */
+        .onboarding-select option {
+            background: var(--input-bg);
+            color: var(--input-text);
+            padding: 8px 12px;
+        }
+
+        [data-theme="dark"] .onboarding-select option {
+            background: #2b2b2b;
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .onboarding-select option {
+            background: #ffffff;
+            color: #1e293b;
+        }
+
+        .onboarding-select optgroup {
+            background: var(--input-bg);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        [data-theme="dark"] .onboarding-select optgroup {
+            background: #2b2b2b;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        [data-theme="light"] .onboarding-select optgroup {
+            background: #ffffff;
+            color: #475569;
+        }
+
+        .onboarding-input:focus,
+        .onboarding-select:focus {
+            outline: none;
+            border-color: #055F5B;
+            box-shadow: 0 0 0 3px rgba(5, 95, 91, 0.15);
+        }
+
+        [data-theme="light"] .onboarding-input:focus,
+        [data-theme="light"] .onboarding-select:focus {
+            background: #ffffff;
+        }
+
+        .onboarding-input:hover:not(:focus),
+        .onboarding-select:hover:not(:focus) {
+            border-color: var(--input-border-hover);
+        }
+
+        .onboarding-input.is-danger,
+        .onboarding-select.is-danger {
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .onboarding-field-error {
+            font-size: 11px;
+            color: var(--error-text);
+            margin-top: 6px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .onboarding-field-hint {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Checkbox Groups */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+
+        .checkbox-label:hover {
+            background: rgba(13, 114, 111, 0.05);
+        }
+
+        .checkbox-input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--input-border);
+            border-radius: 3px;
+            background: var(--input-bg);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .checkbox-input:checked {
+            border-color: #055F5B;
+            background: #055F5B;
+        }
+
+        .checkbox-input:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .checkbox-text {
+            font-size: 13px;
+            color: var(--text-primary);
+            user-select: none;
+        }
+
+        /* Radio Groups */
+        .radio-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border: 2px solid var(--input-border);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background: var(--input-bg);
+        }
+
+        .radio-label:hover {
+            border-color: var(--input-border-hover);
+            background: rgba(13, 114, 111, 0.05);
+        }
+
+        .radio-input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--input-border);
+            border-radius: 50%;
+            background: var(--input-bg);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .radio-input:checked {
+            border-color: #055F5B;
+            background: #055F5B;
+        }
+
+        .radio-input:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        .radio-text {
+            font-size: 13px;
+            color: var(--text-primary);
+            user-select: none;
+        }
+
+        .radio-input:checked + .radio-text {
+            color: #055F5B;
+            font-weight: 600;
+        }
+
+        /* Input Icons */
+        .onboarding-input-wrapper {
+            position: relative;
+        }
+
+        .onboarding-input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 14px;
+            pointer-events: none;
+            transition: color 0.2s;
+        }
+
+        .onboarding-input:focus ~ .onboarding-input-icon,
+        .onboarding-select:focus ~ .onboarding-input-icon,
+        .onboarding-input-wrapper:focus-within .onboarding-input-icon {
+            color: #055F5B;
+        }
+
+        /* Button */
+        .onboarding-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #055F5B 0%, #184341 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .onboarding-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .onboarding-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(13, 114, 111, 0.4);
+        }
+
+        .onboarding-btn:hover::before {
+            left: 100%;
+        }
+
+        .onboarding-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(13, 114, 111, 0.2);
+        }
+
+        .onboarding-btn.is-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .onboarding-btn.is-loading::after {
+            content: '';
+            width: 18px;
+            height: 18px;
+            border: 2px solid transparent;
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .onboarding-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .onboarding-back-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+
+        .onboarding-back-btn:hover {
+            color: var(--link-color);
+        }
+
+        /* Mobile */
+        @media (max-width: 992px) {
+            .onboarding-form-side {
+                width: 55%;
+                padding: 30px 40px;
+            }
+            .onboarding-visual-side {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .onboarding-container {
+                flex-direction: column;
+            }
+
+            .onboarding-form-side {
+                width: 100%;
+                min-height: 100vh;
+                padding: 24px 20px;
+            }
+
+            .onboarding-visual-side {
+                display: none;
+            }
+
+            .onboarding-card {
+                max-width: 100%;
+            }
+
+            .onboarding-title {
+                font-size: 24px;
+            }
+
+            .theme-toggle {
+                top: 16px;
+                right: 16px;
+            }
+        }
+
+        .is-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding-container">
+        <div class="onboarding-form-side">
+            <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                <i class="fas fa-sun icon-sun"></i>
+                <i class="fas fa-moon icon-moon"></i>
+            </button>
+
+            <div class="onboarding-card">
+                <div class="onboarding-logo">
+                    <a href="index.html">
+                        <img src="images/Logo.svg" alt="Startup Niger Delta">
+                    </a>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-step completed"></div>
+                        <div class="progress-step active"></div>
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                    </div>
+                    <div class="progress-text">Step 2 of 5: Basic Profile</div>
+                </div>
+
+                <div class="onboarding-nav">
+                    <button type="button" class="onboarding-back-btn" onclick="window.location.href='onboarding-step1.html'">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                </div>
+
+                <h1 class="onboarding-title" id="profile-title">Basic Profile Information</h1>
+                <p class="onboarding-subtitle" id="profile-subtitle">Tell us about your organization</p>
+
+                <form class="onboarding-form" id="profile-form">
+                    <!-- Startup Fields -->
+                    <div id="startup-fields">
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Startup Name *</label>
+                            <div class="onboarding-input-wrapper">
+                                <input type="text" name="startupName" class="onboarding-input" placeholder="Enter your startup name" id="startup-name">
+                                <i class="fas fa-building onboarding-input-icon"></i>
+                            </div>
+                            <p class="onboarding-field-error" id="error-startupName"></p>
+                        </div>
+
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Industry/Sector (Select all that apply)</label>
+                            <div class="checkbox-group" id="startup-industries">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="fintech" class="checkbox-input">
+                                    <span class="checkbox-text">FinTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="healthtech" class="checkbox-input">
+                                    <span class="checkbox-text">HealthTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="agritech" class="checkbox-input">
+                                    <span class="checkbox-text">AgriTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="edtech" class="checkbox-input">
+                                    <span class="checkbox-text">EdTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="ecommerce" class="checkbox-input">
+                                    <span class="checkbox-text">E-Commerce</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="cleantech" class="checkbox-input">
+                                    <span class="checkbox-text">CleanTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="proptech" class="checkbox-input">
+                                    <span class="checkbox-text">PropTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="logistics" class="checkbox-input">
+                                    <span class="checkbox-text">Logistics</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="entertainment" class="checkbox-input">
+                                    <span class="checkbox-text">Entertainment</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="industry" value="other" class="checkbox-input">
+                                    <span class="checkbox-text">Other</span>
+                                </label>
+                            </div>
+                            <p class="onboarding-field-error" id="error-startupIndustries"></p>
+                        </div>
+
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Team Size</label>
+                            <div class="onboarding-input-wrapper">
+                                <select name="teamSize" class="onboarding-select" id="team-size">
+                                    <option value="">Select team size</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="6-10">6-10</option>
+                                    <option value="11-20">11-20</option>
+                                    <option value="21-50">21-50</option>
+                                    <option value="51-100">51-100</option>
+                                    <option value="100+">100+</option>
+                                </select>
+                                <i class="fas fa-users onboarding-input-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Founding Year</label>
+                            <div class="onboarding-input-wrapper">
+                                <input type="number" name="foundingYear" class="onboarding-input" placeholder="e.g., 2023" min="2010" max="2026" id="founding-year">
+                                <i class="fas fa-calendar onboarding-input-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Investor Fields -->
+                    <div id="investor-fields" style="display: none;">
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Organization Name *</label>
+                            <div class="onboarding-input-wrapper">
+                                <input type="text" name="organizationName" class="onboarding-input" placeholder="Enter your organization name" id="organization-name">
+                                <i class="fas fa-building onboarding-input-icon"></i>
+                            </div>
+                            <p class="onboarding-field-error" id="error-organizationName"></p>
+                        </div>
+
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Investment Focus/Sectors (Select all that apply)</label>
+                            <div class="checkbox-group" id="investor-industries">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="fintech" class="checkbox-input">
+                                    <span class="checkbox-text">FinTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="healthtech" class="checkbox-input">
+                                    <span class="checkbox-text">HealthTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="agritech" class="checkbox-input">
+                                    <span class="checkbox-text">AgriTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="edtech" class="checkbox-input">
+                                    <span class="checkbox-text">EdTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="ecommerce" class="checkbox-input">
+                                    <span class="checkbox-text">E-Commerce</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="cleantech" class="checkbox-input">
+                                    <span class="checkbox-text">CleanTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="proptech" class="checkbox-input">
+                                    <span class="checkbox-text">PropTech</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="logistics" class="checkbox-input">
+                                    <span class="checkbox-text">Logistics</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="entertainment" class="checkbox-input">
+                                    <span class="checkbox-text">Entertainment</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="investmentFocus" value="other" class="checkbox-input">
+                                    <span class="checkbox-text">Other</span>
+                                </label>
+                            </div>
+                            <p class="onboarding-field-error" id="error-investorIndustries"></p>
+                        </div>
+
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Stage Preference (Select all that apply)</label>
+                            <div class="checkbox-group" id="stage-preferences">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="stagePreference" value="idea" class="checkbox-input">
+                                    <span class="checkbox-text">Idea Stage</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="stagePreference" value="mvp" class="checkbox-input">
+                                    <span class="checkbox-text">MVP</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="stagePreference" value="early" class="checkbox-input">
+                                    <span class="checkbox-text">Early Stage</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="stagePreference" value="growth" class="checkbox-input">
+                                    <span class="checkbox-text">Growth Stage</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="stagePreference" value="scaleup" class="checkbox-input">
+                                    <span class="checkbox-text">Scale-up</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Geographic Focus</label>
+                            <div class="radio-group" id="geographic-focus">
+                                <label class="radio-label">
+                                    <input type="radio" name="geographicFocus" value="niger-delta" class="radio-input">
+                                    <span class="radio-text">Niger Delta</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="geographicFocus" value="nigeria" class="radio-input">
+                                    <span class="radio-text">Nigeria</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="geographicFocus" value="global" class="radio-input">
+                                    <span class="radio-text">Global</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="onboarding-input-group">
+                            <label class="onboarding-input-label">Typical Investment Range (Optional)</label>
+                            <div class="onboarding-input-wrapper">
+                                <select name="investmentRange" class="onboarding-select" id="investment-range">
+                                    <option value="">Select investment range</option>
+                                    <option value="0-50k">$0 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="100k-250k">$100,000 - $250,000</option>
+                                    <option value="250k-500k">$250,000 - $500,000</option>
+                                    <option value="500k-above">$500,000 and above</option>
+                                </select>
+                                <i class="fas fa-money-bill-wave onboarding-input-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Common Fields -->
+                    <div class="onboarding-input-group">
+                        <label class="onboarding-input-label">Location *</label>
+                        <div class="onboarding-input-wrapper">
+                            <select name="location" class="onboarding-select" id="location">
+                                <option value="">Select your country</option>
+                                <optgroup label="Africa">
+                                    <option value="nigeria">Nigeria</option>
+                                    <option value="ghana">Ghana</option>
+                                    <option value="kenya">Kenya</option>
+                                    <option value="south-africa">South Africa</option>
+                                    <option value="egypt">Egypt</option>
+                                    <option value="morocco">Morocco</option>
+                                    <option value="ethiopia">Ethiopia</option>
+                                    <option value="uganda">Uganda</option>
+                                    <option value="tanzania">Tanzania</option>
+                                    <option value="algeria">Algeria</option>
+                                    <option value="senegal">Senegal</option>
+                                    <option value="ivory-coast">Ivory Coast</option>
+                                    <option value="cameroon">Cameroon</option>
+                                    <option value="zimbabwe">Zimbabwe</option>
+                                    <option value="zambia">Zambia</option>
+                                    <option value="botswana">Botswana</option>
+                                    <option value="rwanda">Rwanda</option>
+                                    <option value="tunisia">Tunisia</option>
+                                    <option value="liberia">Liberia</option>
+                                    <option value="sierra-leone">Sierra Leone</option>
+                                </optgroup>
+                                <optgroup label="Asia">
+                                    <option value="china">China</option>
+                                    <option value="india">India</option>
+                                    <option value="japan">Japan</option>
+                                    <option value="singapore">Singapore</option>
+                                    <option value="south-korea">South Korea</option>
+                                    <option value="indonesia">Indonesia</option>
+                                    <option value="malaysia">Malaysia</option>
+                                    <option value="thailand">Thailand</option>
+                                    <option value="philippines">Philippines</option>
+                                    <option value="vietnam">Vietnam</option>
+                                    <option value="pakistan">Pakistan</option>
+                                    <option value="bangladesh">Bangladesh</option>
+                                    <option value="sri-lanka">Sri Lanka</option>
+                                    <option value="myanmar">Myanmar</option>
+                                    <option value="cambodia">Cambodia</option>
+                                    <option value="laos">Laos</option>
+                                    <option value="nepal">Nepal</option>
+                                    <option value="mongolia">Mongolia</option>
+                                    <option value="kazakhstan">Kazakhstan</option>
+                                    <option value="uzbekistan">Uzbekistan</option>
+                                </optgroup>
+                                <optgroup label="Europe">
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="france">France</option>
+                                    <option value="italy">Italy</option>
+                                    <option value="spain">Spain</option>
+                                    <option value="netherlands">Netherlands</option>
+                                    <option value="belgium">Belgium</option>
+                                    <option value="switzerland">Switzerland</option>
+                                    <option value="austria">Austria</option>
+                                    <option value="sweden">Sweden</option>
+                                    <option value="norway">Norway</option>
+                                    <option value="denmark">Denmark</option>
+                                    <option value="finland">Finland</option>
+                                    <option value="poland">Poland</option>
+                                    <option value="czech-republic">Czech Republic</option>
+                                    <option value="hungary">Hungary</option>
+                                    <option value="romania">Romania</option>
+                                    <option value="bulgaria">Bulgaria</option>
+                                    <option value="greece">Greece</option>
+                                    <option value="portugal">Portugal</option>
+                                    <option value="ireland">Ireland</option>
+                                    <option value="iceland">Iceland</option>
+                                    <option value="luxembourg">Luxembourg</option>
+                                    <option value="malta">Malta</option>
+                                    <option value="cyprus">Cyprus</option>
+                                    <option value="estonia">Estonia</option>
+                                    <option value="latvia">Latvia</option>
+                                    <option value="lithuania">Lithuania</option>
+                                    <option value="slovakia">Slovakia</option>
+                                    <option value="slovenia">Slovenia</option>
+                                    <option value="croatia">Croatia</option>
+                                </optgroup>
+                                <optgroup label="North America">
+                                    <option value="usa">United States</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="mexico">Mexico</option>
+                                    <option value="guatemala">Guatemala</option>
+                                    <option value="costa-rica">Costa Rica</option>
+                                    <option value="panama">Panama</option>
+                                    <option value="belize">Belize</option>
+                                    <option value="el-salvador">El Salvador</option>
+                                    <option value="honduras">Honduras</option>
+                                    <option value="nicaragua">Nicaragua</option>
+                                    <option value="jamaica">Jamaica</option>
+                                    <option value="trinidad-tobago">Trinidad & Tobago</option>
+                                    <option value="barbados">Barbados</option>
+                                    <option value="bahamas">Bahamas</option>
+                                    <option value="dominican-republic">Dominican Republic</option>
+                                    <option value="haiti">Haiti</option>
+                                    <option value="cuba">Cuba</option>
+                                    <option value="puerto-rico">Puerto Rico</option>
+                                </optgroup>
+                                <optgroup label="South America">
+                                    <option value="brazil">Brazil</option>
+                                    <option value="argentina">Argentina</option>
+                                    <option value="chile">Chile</option>
+                                    <option value="colombia">Colombia</option>
+                                    <option value="peru">Peru</option>
+                                    <option value="venezuela">Venezuela</option>
+                                    <option value="ecuador">Ecuador</option>
+                                    <option value="bolivia">Bolivia</option>
+                                    <option value="paraguay">Paraguay</option>
+                                    <option value="uruguay">Uruguay</option>
+                                    <option value="guyana">Guyana</option>
+                                    <option value="suriname">Suriname</option>
+                                    <option value="french-guiana">French Guiana</option>
+                                </optgroup>
+                                <optgroup label="Oceania">
+                                    <option value="australia">Australia</option>
+                                    <option value="new-zealand">New Zealand</option>
+                                    <option value="fiji">Fiji</option>
+                                    <option value="papua-new-guinea">Papua New Guinea</option>
+                                    <option value="solomon-islands">Solomon Islands</option>
+                                    <option value="vanuatu">Vanuatu</option>
+                                    <option value="samoa">Samoa</option>
+                                    <option value="tonga">Tonga</option>
+                                    <option value="kiribati">Kiribati</option>
+                                    <option value="tuvalu">Tuvalu</option>
+                                    <option value="nauru">Nauru</option>
+                                    <option value="marshall-islands">Marshall Islands</option>
+                                    <option value="micronesia">Micronesia</option>
+                                    <option value="palau">Palau</option>
+                                </optgroup>
+                                <optgroup label="Middle East">
+                                    <option value="saudi-arabia">Saudi Arabia</option>
+                                    <option value="uae">United Arab Emirates</option>
+                                    <option value="qatar">Qatar</option>
+                                    <option value="kuwait">Kuwait</option>
+                                    <option value="oman">Oman</option>
+                                    <option value="bahrain">Bahrain</option>
+                                    <option value="iraq">Iraq</option>
+                                    <option value="iran">Iran</option>
+                                    <option value="israel">Israel</option>
+                                    <option value="jordan">Jordan</option>
+                                    <option value="lebanon">Lebanon</option>
+                                    <option value="syria">Syria</option>
+                                    <option value="yemen">Yemen</option>
+                                </optgroup>
+                                <option value="other">Other</option>
+                            </select>
+                            <i class="fas fa-map-marker-alt onboarding-input-icon"></i>
+                        </div>
+                        <p class="onboarding-field-error" id="error-location"></p>
+                    </div>
+
+                    <button type="button" class="onboarding-btn" id="continue-button">
+                        <span>Continue to Detailed Info</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="onboarding-visual-side">
+            <div class="onboarding-visual-shapes"></div>
+            <div id="particles-js"></div>
+            <div class="onboarding-visual-content">
+                <h2>Build Your Profile</h2>
+                <p>Your organization information helps us connect you with the right resources and opportunities in the Niger Delta ecosystem.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Management
+        function getStoredTheme() {
+            return localStorage.getItem('startup-theme') || 'dark';
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('startup-theme', theme);
+        }
+
+        function toggleTheme() {
+            var currentTheme = document.documentElement.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        }
+
+        // Initialize theme
+        (function() {
+            var storedTheme = getStoredTheme();
+            document.documentElement.setAttribute('data-theme', storedTheme);
+        })();
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        // Form validation and submission
+        const form = document.getElementById('profile-form');
+        const continueButton = document.getElementById('continue-button');
+        const startupFields = document.getElementById('startup-fields');
+        const investorFields = document.getElementById('investor-fields');
+        const profileTitle = document.getElementById('profile-title');
+        const profileSubtitle = document.getElementById('profile-subtitle');
+
+        // Get user role from localStorage
+        function getUserRole() {
+            const roleData = localStorage.getItem('onboarding-role');
+            if (roleData) {
+                return JSON.parse(roleData);
+            }
+            return { role: 'startup', investorType: null };
+        }
+
+        // Show/hide fields based on role
+        function setupFormForRole() {
+            const userRole = getUserRole();
+            
+            if (userRole.role === 'startup') {
+                // Show startup fields
+                startupFields.style.display = 'block';
+                investorFields.style.display = 'none';
+                profileTitle.textContent = 'Basic Profile Information';
+                profileSubtitle.textContent = 'Tell us about your startup';
+                
+                // Update required fields for startup
+                updateRequiredFields('startup');
+            } else if (userRole.role === 'investor') {
+                // Show investor fields
+                startupFields.style.display = 'none';
+                investorFields.style.display = 'block';
+                profileTitle.textContent = 'Basic Profile Information';
+                profileSubtitle.textContent = 'Tell us about your organization';
+                
+                // Update required fields for investor
+                updateRequiredFields('investor');
+            }
+        }
+
+        // Update required fields based on role
+        function updateRequiredFields(role) {
+            // Clear previous required fields
+            document.querySelectorAll('.onboarding-input, .onboarding-select').forEach(field => {
+                field.removeAttribute('required');
+            });
+            
+            if (role === 'startup') {
+                document.getElementById('startup-name').setAttribute('required', 'required');
+                document.getElementById('location').setAttribute('required', 'required');
+            } else if (role === 'investor') {
+                document.getElementById('organization-name').setAttribute('required', 'required');
+                document.getElementById('location').setAttribute('required', 'required');
+            }
+        }
+
+        // Real-time validation
+        function validateForm() {
+            const userRole = getUserRole();
+            let isValid = true;
+            
+            if (userRole.role === 'startup') {
+                // Validate startup fields
+                const startupName = document.getElementById('startup-name');
+                const location = document.getElementById('location');
+                const startupIndustries = document.querySelectorAll('#startup-industries .checkbox-input:checked');
+                
+                if (!startupName.value.trim()) {
+                    showError('error-startupName', 'Startup name is required');
+                    isValid = false;
+                } else {
+                    hideError('error-startupName');
+                }
+                
+                if (startupIndustries.length === 0) {
+                    showError('error-startupIndustries', 'Please select at least one industry');
+                    isValid = false;
+                } else {
+                    hideError('error-startupIndustries');
+                }
+                
+                if (!location.value) {
+                    showError('error-location', 'Location is required');
+                    isValid = false;
+                } else {
+                    hideError('error-location');
+                }
+                
+            } else if (userRole.role === 'investor') {
+                // Validate investor fields
+                const organizationName = document.getElementById('organization-name');
+                const location = document.getElementById('location');
+                const investorIndustries = document.querySelectorAll('#investor-industries .checkbox-input:checked');
+                
+                if (!organizationName.value.trim()) {
+                    showError('error-organizationName', 'Organization name is required');
+                    isValid = false;
+                } else {
+                    hideError('error-organizationName');
+                }
+                
+                if (investorIndustries.length === 0) {
+                    showError('error-investorIndustries', 'Please select at least one investment focus');
+                    isValid = false;
+                } else {
+                    hideError('error-investorIndustries');
+                }
+                
+                if (!location.value) {
+                    showError('error-location', 'Location is required');
+                    isValid = false;
+                } else {
+                    hideError('error-location');
+                }
+            }
+            
+            continueButton.disabled = !isValid;
+        }
+
+        function showError(errorId, message) {
+            const errorElement = document.getElementById(errorId);
+            if (errorElement) {
+                errorElement.textContent = message;
+                const input = errorElement.previousElementSibling.querySelector('.onboarding-input, .onboarding-select');
+                if (input) input.classList.add('is-danger');
+            }
+        }
+
+        function hideError(errorId) {
+            const errorElement = document.getElementById(errorId);
+            if (errorElement) {
+                errorElement.textContent = '';
+                const input = errorElement.previousElementSibling.querySelector('.onboarding-input, .onboarding-select');
+                if (input) input.classList.remove('is-danger');
+            }
+        }
+
+        // Add event listeners
+        document.querySelectorAll('.onboarding-input, .onboarding-select, .checkbox-input').forEach(field => {
+            field.addEventListener('input', validateForm);
+            field.addEventListener('change', validateForm);
+            field.addEventListener('blur', validateForm);
+        });
+
+        // Continue button functionality
+        continueButton.addEventListener('click', function() {
+            // Validate all fields
+            validateForm();
+            
+            if (continueButton.disabled) return;
+            
+            // Show loading state
+            this.classList.add('is-loading');
+            this.querySelector('span').textContent = 'Saving...';
+            
+            // Collect form data based on role
+            const userRole = getUserRole();
+            let formData = {
+                role: userRole.role,
+                investorType: userRole.investorType,
+                location: document.getElementById('location').value
+            };
+            
+            if (userRole.role === 'startup') {
+                formData.startupName = document.getElementById('startup-name').value;
+                formData.industries = Array.from(document.querySelectorAll('#startup-industries .checkbox-input:checked')).map(cb => cb.value);
+                formData.teamSize = document.getElementById('team-size').value;
+                formData.foundingYear = document.getElementById('founding-year').value;
+            } else if (userRole.role === 'investor') {
+                formData.organizationName = document.getElementById('organization-name').value;
+                formData.investmentFocus = Array.from(document.querySelectorAll('#investor-industries .checkbox-input:checked')).map(cb => cb.value);
+                formData.stagePreference = Array.from(document.querySelectorAll('#stage-preferences .checkbox-input:checked')).map(cb => cb.value);
+                const geographicRadio = document.querySelector('#geographic-focus .radio-input:checked');
+                formData.geographicFocus = geographicRadio ? geographicRadio.value : null;
+                formData.investmentRange = document.getElementById('investment-range').value;
+            }
+            
+            // Store data
+            localStorage.setItem('onboarding-basic', JSON.stringify(formData));
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Redirect to next step
+                window.location.href = 'onboarding-step3.html';
+            }, 1500);
+        });
+
+        // Keyboard navigation
+        form.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !continueButton.disabled) {
+                continueButton.click();
+            }
+        });
+
+        // Initialize form on page load
+        window.addEventListener('load', function() {
+            setupFormForRole();
+            
+            // Pre-fill with stored data if available
+            const storedData = localStorage.getItem('onboarding-basic');
+            if (storedData) {
+                const data = JSON.parse(storedData);
+                
+                if (data.startupName) document.getElementById('startup-name').value = data.startupName;
+                if (data.organizationName) document.getElementById('organization-name').value = data.organizationName;
+                if (data.location) document.getElementById('location').value = data.location;
+                if (data.teamSize) document.getElementById('team-size').value = data.teamSize;
+                if (data.foundingYear) document.getElementById('founding-year').value = data.foundingYear;
+                if (data.investmentRange) document.getElementById('investment-range').value = data.investmentRange;
+                
+                // Restore checkbox selections
+                if (data.industries) {
+                    data.industries.forEach(value => {
+                        const checkbox = document.querySelector(`#startup-industries .checkbox-input[value="${value}"]`);
+                        if (checkbox) checkbox.checked = true;
+                    });
+                }
+                
+                if (data.investmentFocus) {
+                    data.investmentFocus.forEach(value => {
+                        const checkbox = document.querySelector(`#investor-industries .checkbox-input[value="${value}"]`);
+                        if (checkbox) checkbox.checked = true;
+                    });
+                }
+                
+                if (data.stagePreference) {
+                    data.stagePreference.forEach(value => {
+                        const checkbox = document.querySelector(`#stage-preferences .checkbox-input[value="${value}"]`);
+                        if (checkbox) checkbox.checked = true;
+                    });
+                }
+                
+                if (data.geographicFocus) {
+                    const radio = document.querySelector(`#geographic-focus .radio-input[value="${data.geographicFocus}"]`);
+                    if (radio) radio.checked = true;
+                }
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+                    "push": { "particles_nb": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Choose Your Role - Startup Niger Delta</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/webclip.svg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --transition-speed: 0.3s;
+        }
+
+        /* Dark Theme (default) */
+        [data-theme="dark"] {
+            --bg-primary: #1b1b1b;
+            --bg-secondary: #222222;
+            --bg-form: linear-gradient(180deg, #2b2b2b 0%, #1b1b1b 100%);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.12);
+            --input-border-hover: rgba(255, 255, 255, 0.2);
+            --input-text: #ffffff;
+            --input-placeholder: rgba(255, 255, 255, 0.35);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --logo-filter: brightness(0) invert(1);
+            --link-color: #055F5B;
+            --link-hover: #044d4a;
+            --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-form: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --input-bg: #ffffff;
+            --input-border: #e2e8f0;
+            --input-border-hover: #cbd5e1;
+            --input-text: #1e293b;
+            --input-placeholder: #94a3b8;
+            --card-border: #e2e8f0;
+            --card-bg: #ffffff;
+            --logo-filter: none;
+            --link-color: #055F5B;
+            --link-hover: #044d4a;
+            --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            transition: background var(--transition-speed) ease;
+        }
+
+        .onboarding-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .onboarding-form-side {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 60px;
+            background: var(--bg-form);
+            position: relative;
+            overflow-y: auto;
+            transition: background var(--transition-speed) ease;
+        }
+
+        .onboarding-visual-side {
+            width: 50%;
+            background: linear-gradient(135deg, #055F5B 0%, #184341 50%, #044d4a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .onboarding-visual-side #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .onboarding-visual-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 40px;
+            max-width: 450px;
+        }
+
+        .onboarding-visual-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .onboarding-visual-content p {
+            font-size: 17px;
+            opacity: 0.9;
+            line-height: 1.7;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        .onboarding-card {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 32px;
+        }
+
+        .progress-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .progress-step {
+            width: 40px;
+            height: 4px;
+            background: var(--input-border);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: #055F5B;
+        }
+
+        .progress-step.completed {
+            background: #055F5B;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--link-color);
+            color: var(--link-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-sun {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-moon {
+            opacity: 0;
+            transform: rotate(-90deg);
+        }
+
+        [data-theme="light"] .theme-toggle .icon-sun {
+            opacity: 0;
+            transform: rotate(90deg);
+        }
+
+        [data-theme="light"] .theme-toggle .icon-moon {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        .onboarding-logo {
+            margin-bottom: 32px;
+        }
+
+        .onboarding-logo img {
+            height: 36px;
+            width: auto;
+            filter: var(--logo-filter);
+            transition: filter var(--transition-speed) ease;
+        }
+
+        .onboarding-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .onboarding-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        /* Role Cards */
+        .role-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .role-card {
+            border: 2px solid var(--input-border);
+            border-radius: 16px;
+            background: var(--input-bg);
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card:hover {
+            border-color: #055F5B;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 114, 111, 0.15);
+        }
+
+        .role-card.selected {
+            border-color: #055F5B;
+            background: rgba(13, 114, 111, 0.1);
+            box-shadow: 0 0 0 3px rgba(13, 114, 111, 0.1);
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .role-card:hover::before {
+            left: 100%;
+        }
+
+        .role-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(13, 114, 111, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .role-icon i {
+            font-size: 24px;
+            color: #055F5B;
+        }
+
+        .role-content {
+            flex: 1;
+        }
+
+        .role-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .role-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .role-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .role-feature {
+            font-size: 12px;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Investor Types */
+        .investor-types {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--input-border);
+            margin-bottom: 32px;
+        }
+
+        .investor-type-group {
+            margin-bottom: 0;
+        }
+
+        .investor-type-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .investor-type-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .investor-type-item {
+            position: relative;
+        }
+
+        .investor-type-radio-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            border: 2px solid var(--input-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--input-bg);
+        }
+
+        .investor-type-radio-label:hover {
+            border-color: var(--input-border-hover);
+            background: rgba(13, 114, 111, 0.05);
+        }
+
+        .investor-type-radio {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--input-border);
+            border-radius: 50%;
+            background: var(--input-bg);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .investor-type-radio:checked {
+            border-color: #055F5B;
+            background: #055F5B;
+        }
+
+        .investor-type-radio:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        .investor-type-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: color 0.2s ease;
+        }
+
+        .investor-type-radio:checked + .investor-type-name {
+            color: #055F5B;
+            font-weight: 600;
+        }
+
+        .investor-type-details {
+            margin-bottom: 16px;
+            padding: 14px;
+            background: rgba(13, 114, 111, 0.1);
+            border: 1px solid rgba(13, 114, 111, 0.2);
+            border-radius: 10px;
+            animation: slideDown 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .investor-details-content {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .investor-details-content::before {
+            content: 'ℹ️';
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .investor-details-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #055F5B;
+            margin-bottom: 6px;
+        }
+
+        .investor-details-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button */
+        .onboarding-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #055F5B 0%, #184341 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .onboarding-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .onboarding-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(13, 114, 111, 0.4);
+        }
+
+        .onboarding-btn:hover::before {
+            left: 100%;
+        }
+
+        .onboarding-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(13, 114, 111, 0.2);
+        }
+
+        .onboarding-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .onboarding-btn.is-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .onboarding-btn.is-loading::after {
+            content: '';
+            width: 18px;
+            height: 18px;
+            border: 2px solid transparent;
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile */
+        @media (max-width: 992px) {
+            .onboarding-form-side {
+                width: 55%;
+                padding: 30px 40px;
+            }
+            .onboarding-visual-side {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .onboarding-container {
+                flex-direction: column;
+            }
+
+            .onboarding-form-side {
+                width: 100%;
+                min-height: 100vh;
+                padding: 24px 20px;
+            }
+
+            .onboarding-visual-side {
+                display: none;
+            }
+
+            .onboarding-card {
+                max-width: 100%;
+            }
+
+            .onboarding-title {
+                font-size: 24px;
+            }
+
+            .theme-toggle {
+                top: 16px;
+                right: 16px;
+            }
+
+            .role-card {
+                padding: 20px;
+            }
+
+            .role-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .role-icon i {
+                font-size: 20px;
+            }
+        }
+
+        .is-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding-container">
+        <div class="onboarding-form-side">
+            <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                <i class="fas fa-sun icon-sun"></i>
+                <i class="fas fa-moon icon-moon"></i>
+            </button>
+
+            <div class="onboarding-card">
+                <div class="onboarding-logo">
+                    <a href="index.html">
+                        <img src="images/Logo.svg" alt="Startup Niger Delta">
+                    </a>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-step active"></div>
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                    </div>
+                    <div class="progress-text">Step 1 of 5: Choose Your Role</div>
+                </div>
+
+                <h1 class="onboarding-title">Choose Your Role</h1>
+                <p class="onboarding-subtitle">Select the option that best describes you</p>
+
+                <div class="role-cards">
+                    <div class="role-card" data-role="startup">
+                        <div class="role-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="role-content">
+                            <h3 class="role-title">Startup Founder</h3>
+                            <p class="role-description">I'm building or running a startup and looking for resources, funding, and support to grow my business.</p>
+                            <div class="role-features">
+                                <span class="role-feature">Funding Access</span>
+                                <span class="role-feature">Mentorship</span>
+                                <span class="role-feature">Resources</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="role-card" data-role="investor" id="investor-main-card">
+                        <div class="role-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="role-content">
+                            <h3 class="role-title">Investor</h3>
+                            <p class="role-description">I'm looking to invest in promising startups and support the entrepreneurial ecosystem.</p>
+                            <div class="role-features">
+                                <span class="role-feature">Deal Flow</span>
+                                <span class="role-feature">Due Diligence</span>
+                                <span class="role-feature">Portfolio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="investor-types" id="investor-types" style="display: none;">
+                    <div class="investor-type-group">
+                        <label class="investor-type-label">Select Investor Type</label>
+                        
+                        <!-- Details container that appears in front -->
+                        <div class="investor-type-details" id="investor-details" style="display: none;">
+                            <div class="investor-details-content">
+                                <h4 class="investor-details-title" id="details-title"></h4>
+                                <p class="investor-details-description" id="details-description"></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Radio list -->
+                        <div class="investor-type-list">
+                            <div class="investor-type-item">
+                                <label class="investor-type-radio-label">
+                                    <input type="radio" name="investorType" value="angel" class="investor-type-radio">
+                                    <span class="investor-type-name">Angel Investor</span>
+                                </label>
+                            </div>
+                            <div class="investor-type-item">
+                                <label class="investor-type-radio-label">
+                                    <input type="radio" name="investorType" value="vc" class="investor-type-radio">
+                                    <span class="investor-type-name">Venture Capitalist</span>
+                                </label>
+                            </div>
+                            <div class="investor-type-item">
+                                <label class="investor-type-radio-label">
+                                    <input type="radio" name="investorType" value="accelerator" class="investor-type-radio">
+                                    <span class="investor-type-name">Accelerator</span>
+                                </label>
+                            </div>
+                            <div class="investor-type-item">
+                                <label class="investor-type-radio-label">
+                                    <input type="radio" name="investorType" value="innovation-hub" class="investor-type-radio">
+                                    <span class="investor-type-name">Innovation Hub</span>
+                                </label>
+                            </div>
+                            <div class="investor-type-item">
+                                <label class="investor-type-radio-label">
+                                    <input type="radio" name="investorType" value="incubator" class="investor-type-radio">
+                                    <span class="investor-type-name">Incubator</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="onboarding-btn" id="continue-button" disabled>
+                    <span>Continue to Basic Profile</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="onboarding-visual-side">
+            <div class="onboarding-visual-shapes"></div>
+            <div id="particles-js"></div>
+            <div class="onboarding-visual-content">
+                <h2>Join Our Community</h2>
+                <p>Whether you're a startup founder or investor, we have the tools and resources to help you succeed in the Niger Delta ecosystem.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Management
+        function getStoredTheme() {
+            return localStorage.getItem('startup-theme') || 'dark';
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('startup-theme', theme);
+        }
+
+        function toggleTheme() {
+            var currentTheme = document.documentElement.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        }
+
+        // Initialize theme
+        (function() {
+            var storedTheme = getStoredTheme();
+            document.documentElement.setAttribute('data-theme', storedTheme);
+        })();
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        // Role selection functionality
+        let selectedRole = null;
+        let selectedInvestorType = null;
+        const roleCards = document.querySelectorAll('.role-card');
+        const investorTypeRadios = document.querySelectorAll('.investor-type-radio');
+        const continueButton = document.getElementById('continue-button');
+        const investorTypesSection = document.getElementById('investor-types');
+        const investorDetails = document.getElementById('investor-details');
+        const detailsTitle = document.getElementById('details-title');
+        const detailsDescription = document.getElementById('details-description');
+
+        // Investor type details data
+        const investorTypeDetails = {
+            angel: {
+                title: 'Angel Investor',
+                description: 'Individual investor providing capital and mentorship to early-stage startups. Typically invests their own funds and takes an active advisory role in helping startups grow.'
+            },
+            vc: {
+                title: 'Venture Capitalist',
+                description: 'Professional investment firm managing funds to invest in high-growth startups. Focuses on scalable businesses with significant market potential and provides strategic guidance.'
+            },
+            accelerator: {
+                title: 'Accelerator',
+                description: 'Program offering mentorship, funding, and resources for rapid startup growth. Typically runs intensive 3-6 month programs culminating in demo days.'
+            },
+            'innovation-hub': {
+                title: 'Innovation Hub',
+                description: 'Center fostering innovation and connecting startups with resources and networks. Provides collaborative spaces, events, and ecosystem support.'
+            },
+            incubator: {
+                title: 'Incubator',
+                description: 'Organization supporting early-stage startups with workspace and mentorship. Focuses on nurturing ideas through the initial development phases.'
+            }
+        };
+
+        roleCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove previous selection
+                roleCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selection to clicked card
+                this.classList.add('selected');
+                selectedRole = this.dataset.role;
+                
+                // Show/hide investor types based on selection
+                if (selectedRole === 'investor') {
+                    investorTypesSection.style.display = 'block';
+                    // Reset investor type selection
+                    investorTypeRadios.forEach(radio => radio.checked = false);
+                    selectedInvestorType = null;
+                    investorDetails.style.display = 'none';
+                    continueButton.disabled = true;
+                } else {
+                    investorTypesSection.style.display = 'none';
+                    selectedInvestorType = null;
+                    investorDetails.style.display = 'none';
+                    continueButton.disabled = false;
+                }
+            });
+        });
+
+        // Investor type selection
+        investorTypeRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                selectedInvestorType = this.value;
+                
+                if (selectedInvestorType && investorTypeDetails[selectedInvestorType]) {
+                    // Show details
+                    detailsTitle.textContent = investorTypeDetails[selectedInvestorType].title;
+                    detailsDescription.textContent = investorTypeDetails[selectedInvestorType].description;
+                    investorDetails.style.display = 'block';
+                    continueButton.disabled = false;
+                } else {
+                    investorDetails.style.display = 'none';
+                    continueButton.disabled = true;
+                }
+            });
+        });
+
+        // Continue button functionality
+        continueButton.addEventListener('click', function() {
+            if (!selectedRole) return;
+            
+            // For investors, ensure investor type is selected
+            if (selectedRole === 'investor' && !selectedInvestorType) return;
+            
+            // Show loading state
+            this.classList.add('is-loading');
+            this.querySelector('span').textContent = 'Saving...';
+            
+            // Store selected role and investor type
+            const roleData = {
+                role: selectedRole,
+                investorType: selectedInvestorType
+            };
+            localStorage.setItem('onboarding-role', JSON.stringify(roleData));
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Redirect to next step
+                window.location.href = 'onboarding-step2.html';
+            }, 1500);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !continueButton.disabled) {
+                continueButton.click();
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+                    "push": { "particles_nb": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>

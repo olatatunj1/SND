@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html data-wf-page="699dd5ed837e128eec291d1c" data-wf-site="699dd5ec837e128eec291cba" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Organisation - Startup Niger Delta</title>
+  <meta content="Startup Niger Delta - Organisation" name="description">
+  <meta content="Organisation - Startup Niger Delta" property="og:title">
+  <meta content="Startup Niger Delta - Organisation" property="og:description">
+  <meta content="images/open-graph-startup-niger-delta.png" property="og:image">
+  <meta content="Organisation - Startup Niger Delta" property="twitter:title">
+  <meta content="Startup Niger Delta - Organisation" property="twitter:description">
+  <meta content="images/open-graph-startup-niger-delta.png" property="twitter:image">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Startup Niger Delta" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/exceptional-site-2aad32.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["DM Sans:300,400,500,600,700"]  }});</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.svg" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.svg" rel="apple-touch-icon">
+  <style>
+  .w-webflow-badge{
+  display:none !important;
+  }
+  
+  /* Reduce padding for hero section */
+  .section.hero-v1 {
+      padding-top: 40px !important;
+      padding-bottom: 0px !important;
+      background-color: #055f5b !important;
+  }
+  
+  /* Custom SND Branding */
+  .snd-primary {
+    color: #FF7D05 !important;
+  }
+  .snd-bg-primary {
+    background-color: #FF7D05 !important;
+  }
+  /* Logo sizing */
+  .header-logo {
+    max-height: 50px !important;
+    max-width: 200px !important;
+  }
+  .header-logo img {
+    max-height: 50px !important;
+    max-width: 200px !important;
+  }
+  
+  /* Back to top button */
+  .back-to-top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #055f5b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(100px);
+    box-shadow: 0 4px 12px rgba(5, 95, 91, 0.3);
+  }
+  
+  .back-to-top-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .back-to-top-button:hover {
+    background-color: #044a47;
+    transform: translateY(0) scale(1.1);
+  }
+  
+  /* Navigation padding */
+  .header {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+  }
+  /* Dropdown positioning and animation */
+  .w-dropdown .dropdown-list,
+  .w-dropdown-list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 200px;
+    z-index: 1000;
+    padding: 20px 0;
+  }
+  .dropdown-nav-main-wrapper {
+    padding: 20px;
+  }
+  .nav-link-dropdown {
+    position: relative !important;
+  }
+  /* Dropdown animation */
+  .w-dropdown-list {
+    display: block !important;
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  .w-dropdown:hover > .w-dropdown-list,
+  .w-dropdown-list.w--open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  /* Stagger content inside dropdown */
+  .w-dropdown-list .dropdown-nav-content {
+    transition: opacity 0.2s ease 0.05s, transform 0.2s ease 0.05s;
+  }
+  .w-dropdown-list .dropdown-nav-title {
+    transition: opacity 0.2s ease 0.15s, transform 0.2s ease 0.15s;
+  }
+  .w-dropdown:not(:hover) .dropdown-nav-content,
+  .w-dropdown:not(:hover) .dropdown-nav-title,
+  .w-dropdown-list:not(.w--open) .dropdown-nav-content,
+  .w-dropdown-list:not(.w--open) .dropdown-nav-title {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  /* Dropdown padding */
+  .dropdown-nav-main-wrapper,
+  .dropdown-nav-pages-wrapper {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    padding-right: 4px !important;
+  }
+  .dropdown-nav-content {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    padding-right: 0 !important;
+  }
+  .dropdown-nav-title {
+    margin-bottom: 5px !important;
+    padding-bottom: 0 !important;
+  }
+  .dropdown-nav-item {
+    padding: 6px 0 !important;
+    margin: 0 !important;
+  }
+  .dropdown-nav-link {
+    padding: 6px 0 !important;
+  }
+  /* New footer layout arrangement */
+  footer.footer {
+    padding-top: 40px !important;
+    padding-bottom: 30px !important;
+  }
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 30px !important;
+  }
+  .footer-brand {
+    max-width: 300px;
+  }
+  .footer-logo {
+    max-width: 180px !important;
+    height: auto !important;
+  }
+  .footer-description {
+    margin-top: 15px;
+    color: #6b7280;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .footer-cta {
+    margin-top: 0;
+  }
+  /* Copyright section */
+  .copyright-section {
+    background-color: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    padding: 8px 0;
+  }
+  .copyright-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .copyright-text {
+    color: #6b7280;
+    font-size: 13px;
+    margin: 0;
+  }
+  .copyright-link {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+  }
+  .copyright-link:hover {
+    color: #FAAC04;
+  }
+  .copyright-link:first-child {
+    margin-left: 0;
+  }
+  /* Navigation animations */
+  .header {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .header.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .brand {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+  }
+  .brand.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .nav-menu {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .nav-menu.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .header-button {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s;
+  }
+  .header-button.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  /* Profile icon styling */
+  .profile-icon {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .profile-circle:hover {
+    background-color: #4b5563;
+  }
+  .profile-icon-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Reduce section padding */
+  .section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  
+  .section.about-v1-hero {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    background-color: #055f5b !important;
+  }
+  
+  .section.bg-secondary-1 {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+
+  /* Make the image wrapper visible as yellow circle */
+  .image-wrapper.about-v1-hero {
+    width: 80px !important;
+    height: 80px !important;
+    background-color: #faac04 !important;
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 10% !important;
+    transform: translateY(-50%) !important;
+  }
+ </style>
+</head>
+<body>
+  <div style="opacity:0" class="page-wrapper">
+    <div data-collapse="medium" data-animation="over-left" data-duration="400" data-w-id="58db7844-5919-d71b-dd74-2323ed8dffe9" data-easing="ease" data-easing2="ease" role="banner" class="header w-nav">
+      <div class="container-default w-container">
+        <div class="header-wrapper">
+          <div data-w-id="02b293cc-fd03-8c39-78c3-dfe63557a722" class="split-content header-right">
+            <a href="index.html" class="brand w-nav-brand"><img src="images/Logo.svg" alt="Startup Niger Delta" class="header-logo"></a>
+          </div>
+          <nav role="navigation" data-w-id="58db7844-5919-d71b-dd74-2323ed8dffed" class="nav-menu w-nav-menu">
+            <ul role="list" class="header-navigation">
+              <li class="nav-item-wrapper">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item-wrapper">
+                <div data-hover="true" data-delay="0" data-w-id="d0e237c9-deb9-b521-8b7c-6dc1cf9be943" class="nav-link-dropdown w-dropdown">
+                  <div class="nav-link dropdown w-dropdown-toggle">
+                    <div>Ecosystem&nbsp;&nbsp;<span class="dropdown-arrow"></span></div>
+                  </div>
+                  <nav class="dropdown-list w-dropdown-list">
+                    <div class="dropdown-nav-main-wrapper">
+                      <div class="dropdown-nav-pages-wrapper">
+                        <div class="title dropdown-nav-title">Ecosystem</div>
+                        <div class="dropdown-nav-content">
+                          <ul role="list" class="dropdown-nav">
+                            <li class="dropdown-nav-item">
+                              <a href="startups.html" class="dropdown-nav-link">Startups</a>
+                            </li>
+                            <li class="dropdown-nav-item">
+                              <a href="investors.html" class="dropdown-nav-link">Investors</a>
+                            </li>
+                            <li class="dropdown-nav-item">
+                              <a href="hubs.html" class="dropdown-nav-link">Hubs</a>
+                            </li>
+                            <li class="dropdown-nav-item">
+                              <a href="training.html" class="dropdown-nav-link">Training</a>
+                            </li>
+                            <li class="dropdown-nav-item">
+                              <a href="initiatives.html" class="dropdown-nav-link">Initiatives</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </li>
+              <li class="nav-item-wrapper">
+                <div data-hover="true" data-delay="0" data-w-id="d0e237c9-deb9-b521-8b7c-6dc1cf9be943" class="nav-link-dropdown w-dropdown">
+                  <div class="nav-link dropdown w-dropdown-toggle">
+                    <div>Funding&nbsp;&nbsp;<span class="dropdown-arrow"></span></div>
+                  </div>
+                  <nav class="dropdown-list w-dropdown-list">
+                    <div class="dropdown-nav-main-wrapper">
+                      <div class="dropdown-nav-pages-wrapper">
+                        <div class="title dropdown-nav-title">Funding</div>
+                        <div class="dropdown-nav-content">
+                          <ul role="list" class="dropdown-nav">
+                            <li class="dropdown-nav-item">
+                              <a href="funding.html" class="dropdown-nav-link">Recently Closed</a>
+                            </li>
+                            <li class="dropdown-nav-item">
+                              <a href="funding.html" class="dropdown-nav-link">How to Invest</a>
+                            </li>
+                            <li class="dropdown-nav-item">
+                              <a href="funding.html" class="dropdown-nav-link">Apply for Funding</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </li>
+              <li class="nav-item-wrapper">
+                <a href="news.html" class="nav-link">News</a>
+              </li>
+              <li class="nav-item-wrapper">
+                <a href="events.html" class="nav-link">Events</a>
+              </li>
+              <li class="nav-item-wrapper">
+                  <div data-hover="true" data-delay="0" data-w-id="d0e237c9-deb9-b521-8b7c-6dc1cf9be943" class="nav-link-dropdown w-dropdown">
+                    <div class="nav-link dropdown w-dropdown-toggle">
+                      <div>About us&nbsp;&nbsp;<span class="dropdown-arrow"></span></div>
+                    </div>
+                    <nav class="dropdown-list w-dropdown-list">
+                      <div class="dropdown-nav-main-wrapper">
+                        <div class="dropdown-nav-pages-wrapper">
+                          <div class="title dropdown-nav-title">About us</div>
+                          <div class="dropdown-nav-content">
+                            <ul role="list" class="dropdown-nav">
+                              <li class="dropdown-nav-item">
+                                <a href="organisation.html" class="dropdown-nav-link">Our Organisation</a>
+                              </li>
+                              <li class="dropdown-nav-item">
+                                <a href="contact.html" class="dropdown-nav-link">Contact</a>
+                              </li>
+                              <li class="dropdown-nav-item">
+                                <a href="contact.html#faq" class="dropdown-nav-link">FAQ</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
+                  </div>
+                </li>
+            </ul>
+          </nav>
+          <div data-w-id="78f63fc2-9930-89fb-7433-4c85d37c65a8" class="split-content header-left">
+            <div class="profile-icon">
+              <a href="login.html" class="profile-circle">
+                <img src="images/profileicon.svg" alt="Profile" class="profile-icon-img">
+              </a>
+            </div>
+            <a href="register.html" class="button-primary header-button w-button">Get Started</a>
+            <div class="menu-button w-nav-button">
+              <div class="header-menu-button-icon-wrapper">
+                <div class="icon-wrapper">
+                  <div class="header-menu-button-icon-top"></div>
+                  <div class="header-menu-button-icon-medium"></div>
+                  <div class="header-menu-button-icon-bottom"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section about-v1-hero">
+      <div class="container-medium-616px about-v1-hero">
+        <h1 data-w-id="766e86a4-1bfb-19a7-48f2-9ab3925b5383" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="title neutral-100 about-v1-hero">About Startup Niger Delta</h1>
+        <p data-w-id="18f22eb2-2ad4-ce2a-dd2e-1cac6710117c" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="paragraph neutral-100 about-v1-hero">Empowering startups and entrepreneurs in the Niger Delta region through innovation, funding, and community support to build sustainable businesses and create economic opportunities.</p>
+        <div data-w-id="049bf9ed-d7c1-93d0-2620-f6a23854332a" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="_2-buttons">
+          <a href="contact.html" class="button-primary button-white _2-buttons-button w-button">Join our team</a>
+          <a href="#about-v1-story" class="button-secondary button-white _2-buttons-button w-button">Read more</a>
+        </div>
+      </div>
+      <div class="bg about-v1-hero-shape-1"></div><img src="images/shape-2-cta-3-startup-x-template.svg" alt="" style="-webkit-transform:translate3d(0, -40px, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, -40px, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, -40px, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, -40px, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);opacity:0" data-w-id="0da30b7e-04c3-db31-db03-4c661482d0ef" class="bg about-v1-hero-shape-3"><img src="images/shape-home-v1-hero-startup-x-template.svg" alt="" style="animation:spin 60s linear infinite" class="bg about-v1-hero-shape-2"</div>
+    </div>
+    <div class="section bg-secondary-1 about-v1-values">
+      <div class="container-default w-container">
+        <div class="about-v1-story-wrapper">
+          <div class="split-content about-v1-story-left">
+            <div data-w-id="66d6c829-6ed1-19e6-cd87-58da7ed49d9e" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="about-v1-story-content">
+              <div class="subtitle-wrapper about-v1-story">
+                <div class="subtitle-line about-v1-story"></div>
+                <div class="subtitle">Our Story</div>
+              </div>
+              <h2 class="title about-v1-story">The story behind Startup Niger Delta</h2>
+              <p class="paragraph about-v1-story">Founded in 2020, Startup Niger Delta emerged from a vision to transform the entrepreneurial landscape of the Niger Delta region. We recognized the immense potential of local innovators and the need for a supportive ecosystem that could nurture their ideas into successful businesses.</p>
+            </div>
+            <div class="image-wrapper about-v1-story"><img class="image about-v1-story" src="images/image-2-about-v1-story-startup-x-template.jpg" alt="Our Mission - Startup Niger Delta" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" sizes="(max-width: 479px) 93vw, (max-width: 991px) 94vw, (max-width: 1439px) 46vw, 562px" data-w-id="9aac59fa-b45e-f52c-671d-bd03e02cbfc2" srcset="images/image-2-about-v1-story-startup-x-template-p-500.jpeg 500w, images/image-2-about-v1-story-startup-x-template-p-800.jpeg 800w, images/image-2-about-v1-story-startup-x-template-p-1080.jpeg 1080w, images/image-2-about-v1-story-startup-x-template.jpg 1124w"></div>
+          </div>
+          <div class="split-content about-v1-story-right">
+            <div class="image-wrapper about-v1-mission"><img class="image about-v1-mission" src="images/image-1-about-v1-story-startup-x-template.jpg" alt="Our Story - Startup Niger Delta" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" sizes="(max-width: 479px) 93vw, (max-width: 991px) 94vw, (max-width: 1439px) 46vw, 562px" data-w-id="1ca57553-b3cf-49fd-c0a7-317b845fe5b6" srcset="images/image-1-about-v1-story-startup-x-template-p-500.jpeg 500w, images/image-1-about-v1-story-startup-x-template-p-800.jpeg 800w, images/image-1-about-v1-story-startup-x-template-p-1080.jpeg 1080w, images/image-1-about-v1-story-startup-x-template.jpg 1124w"></div>
+            <div data-w-id="f3310c03-559a-e2ee-f868-63a9479bd09d" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="about-v1-mission-content">
+              <div class="subtitle-wrapper about-v1-mission">
+                <div class="subtitle-line about-v1-mission"></div>
+                <div class="subtitle">Our mission</div>
+              </div>
+              <h2 class="title about-v1-mission">Empowering entrepreneurs to build sustainable businesses in the Niger Delta</h2>
+              <p class="paragraph about-v1-mission">We are committed to creating a thriving startup ecosystem in the Niger Delta by providing access to funding, mentorship, training, and networking opportunities. Our goal is to unlock the potential of local talent and drive economic growth through innovation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container-small-551px about-v1-team">
+        <div data-w-id="f56d78c2-a123-3a33-4790-1d94327606a0" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="subtitle about-v1-team">Our Team</div>
+        <h2 data-w-id="d8d7ad47-780a-6ec2-67a7-560d4dc7d0c9" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="title about-v1-team">Meet the amazing team behind Startup Niger Delta</h2>
+      </div>
+      <div class="container-default w-container">
+        <div class="w-dyn-list">
+          <div role="list" class="team-v1-grid w-dyn-items">
+            <div data-w-id="cda4d0f9-9ec0-ec4d-39de-6a98bd469782" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" role="listitem" class="team-v1-item w-dyn-item">
+              <a href="#" class="card team-v1 w-inline-block">
+                <div class="image-wrapper card-team-v1"><img src="images/60b279ea80e8c67d454135e2_john-carter-profile-picture-startup-x-webflow-template.jpg" alt="John Carter - Startup Niger Delta" class="image card-team-v1">
+                  <div class="card-team-v1-position">VP of Marketing</div>
+                </div>
+                <div class="card-team-v1-content">
+                  <h3 class="title card-team-v1-name">Chukwuemeka Okoro</h3>
+                  <p class="paragraph card-team-v1-about-excerpt">Leading marketing strategies for our ecosystem.</p>
+                </div>
+              </a>
+            </div>
+            <div data-w-id="cda4d0f9-9ec0-ec4d-39de-6a98bd469782" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" role="listitem" class="team-v1-item w-dyn-item">
+              <a href="#" class="card team-v1 w-inline-block">
+                <div class="image-wrapper card-team-v1"><img src="images/60b279f157e59b8d953e7e0b_sophie-moore-profile-picture-startup-x-webflow-template.jpg" alt="Sophie Moore - Startup Niger Delta" class="image card-team-v1">
+                  <div class="card-team-v1-position">VP of Product</div>
+                </div>
+                <div class="card-team-v1-content">
+                  <h3 class="title card-team-v1-name">Ngozi Okeke</h3>
+                  <p class="paragraph card-team-v1-about-excerpt">Driving product innovation and user experience for our startup community.</p>
+                </div>
+              </a>
+            </div>
+            <div data-w-id="cda4d0f9-9ec0-ec4d-39de-6a98bd469782" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" role="listitem" class="team-v1-item w-dyn-item">
+              <a href="#" class="card team-v1 w-inline-block">
+                <div class="image-wrapper card-team-v1"><img src="images/60b279fb1c7edd42dff25dbc_matt-cannon-profile-picture-startup-x-webflow-template.jpg" alt="Matt Cannon - Startup Niger Delta" class="image card-team-v1">
+                  <div class="card-team-v1-position">VP of Design</div>
+                </div>
+                <div class="card-team-v1-content">
+                  <h3 class="title card-team-v1-name">Tunde Adekunle</h3>
+                  <p class="paragraph card-team-v1-about-excerpt">Creating beautiful designs and user interfaces for our platform.</p>
+                </div>
+              </a>
+            </div>
+            <div data-w-id="cda4d0f9-9ec0-ec4d-39de-6a98bd469782" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" role="listitem" class="team-v1-item w-dyn-item">
+              <a href="#" class="card team-v1 w-inline-block">
+                <div class="image-wrapper card-team-v1"><img src="images/60b27a09b5434b5e4f7c30af_lily-woods-profile-picture-startup-x-webflow-template.jpg" alt="Lily Woods - Startup Niger Delta" class="image card-team-v1">
+                  <div class="card-team-v1-position">VP of Operations</div>
+                </div>
+                <div class="card-team-v1-content">
+                  <h3 class="title card-team-v1-name">Funke Adebayo</h3>
+                  <p class="paragraph card-team-v1-about-excerpt">Managing operations and ensuring smooth execution of our programs.</p>
+                </div>
+              </a>
+            </div>
+            <div data-w-id="cda4d0f9-9ec0-ec4d-39de-6a98bd469782" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" role="listitem" class="team-v1-item w-dyn-item">
+              <a href="#" class="card team-v1 w-inline-block">
+                <div class="image-wrapper card-team-v1"><img src="images/60b27a1458e09006be591cef_jeremy-matthews-profile-picture-startup-x-webflow-template.jpg" alt="Jeremy Matthews - Startup Niger Delta" class="image card-team-v1">
+                  <div class="card-team-v1-position">Head of People</div>
+                </div>
+                <div class="card-team-v1-content">
+                  <h3 class="title card-team-v1-name">Emeka Nwankwo</h3>
+                  <p class="paragraph card-team-v1-about-excerpt">Leading human resources and talent development for our growing team.</p>
+                </div>
+              </a>
+            </div>
+            <div data-w-id="cda4d0f9-9ec0-ec4d-39de-6a98bd469782" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" role="listitem" class="team-v1-item w-dyn-item">
+              <a href="#" class="card team-v1 w-inline-block">
+                <div class="image-wrapper card-team-v1"><img src="images/60b27a1cbf38ca811b0714b4_andy-smith-profile-picture-startup-x-webflow-template.jpg" alt="Andy Smith - Startup Niger Delta" class="image card-team-v1">
+                  <div class="card-team-v1-position">VP of Finance</div>
+                </div>
+                <div class="card-team-v1-content">
+                  <h3 class="title card-team-v1-name">Andy Smith</h3>
+                  <p class="paragraph card-team-v1-about-excerpt">Managing financial strategies for our startups.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div data-w-id="dd979146-8542-f790-db5f-b33c7d98aa5b" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="flex-vc">
+          <a href="contact.html" class="button-primary w-button">Join our team</a>
+        </div>
+      </div>
+    </div>
+    <div class="section bg-secondary-1 about-v1-values">
+      <div class="container-default w-container">
+        <div class="about-v1-values-wrapper">
+          <div data-w-id="0f7038f8-10fd-99bb-f5b4-9f3e0376b70e" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="content-top about-v1-values">
+            <div class="split-content about-v1-values-left">
+              <div class="subtitle-wrapper about-v1-values">
+                <div class="subtitle-line about-v1-values"></div>
+                <div class="subtitle">Our Values</div>
+              </div>
+              <h2 class="title about-v1-values">The values that guide everything we do at Startup Niger Delta</h2>
+            </div>
+            <div class="split-content about-v1-values-right">
+              <a href="contact.html" class="button-primary w-button">Join our team</a>
+            </div>
+          </div>
+          <div data-w-id="8e281a47-7e2f-6b47-a2f0-0f5a9c346c5e" style="-webkit-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 35px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="w-layout-grid about-v1-values-grid">
+            <div class="card about-v1-value"><img src="images/icon-1-about-v1-values-startup-x-template.svg" alt="Innovation - Startup Niger Delta" class="image card-about-v1-value">
+              <div class="card-about-v1-value-content">
+                <h3 class="title card-about-v1-value">Innovation</h3>
+                <p class="paragraph card-about-v1-value">We foster creativity and embrace new ideas to solve local challenges through technology and entrepreneurship.</p>
+              </div>
+            </div>
+            <div class="card about-v1-value"><img src="images/icon-2-about-v1-values-startup-x-template.svg" alt="Community - Startup Niger Delta" class="image card-about-v1-value">
+              <div class="card-about-v1-value-content">
+                <h3 class="title card-about-v1-value">Community First</h3>
+                <p class="paragraph card-about-v1-value">We believe in the power of collaboration and building strong networks to support our entrepreneurs.</p>
+              </div>
+            </div>
+            <div class="card about-v1-value"><img src="images/icon-3-about-v1-values-startup-x-template.svg" alt="Excellence - Startup Niger Delta" class="image card-about-v1-value">
+              <div class="card-about-v1-value-content">
+                <h3 class="title card-about-v1-value">Excellence</h3>
+                <p class="paragraph card-about-v1-value">We strive for the highest standards in everything we do, from mentorship to funding and support.</p>
+              </div>
+            </div>
+            <div class="card about-v1-value"><img src="images/icon-4-about-v1-values-startup-x-template.svg" alt="Growth - Startup Niger Delta" class="image card-about-v1-value">
+              <div class="card-about-v1-value-content">
+                <h3 class="title card-about-v1-value">Sustainable Growth</h3>
+                <p class="paragraph card-about-v1-value">We focus on building businesses that create lasting impact and contribute to regional development.</p>
+              </div>
+            </div>
+            <div class="card about-v1-value"><img src="images/icon-5-about-v1-values-startup-x-template.svg" alt="Impact - Startup Niger Delta" class="image card-about-v1-value">
+              <div class="card-about-v1-value-content">
+                <h3 class="title card-about-v1-value">Impact Driven</h3>
+                <p class="paragraph card-about-v1-value">We measure success by the positive change we create in our communities and the lives we touch.</p>
+              </div>
+            </div>
+            <div class="card about-v1-value"><img src="images/icon-6-about-v1-values-startup-x-template.svg" alt="Partnership - Startup Niger Delta" class="image card-about-v1-value">
+              <div class="card-about-v1-value-content">
+                <h3 class="title card-about-v1-value">Partnership</h3>
+                <p class="paragraph card-about-v1-value">We collaborate with stakeholders to create a comprehensive support system for startups.</p>
+              </div>
+            </div>
+          </div><img src="images/shape-1-about-v1-values-startup-x-template.svg" alt="" style="-webkit-transform:translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);opacity:0" data-w-id="5eab3cd1-d504-b7bb-445f-5056043906ee" class="bg about-v1-values-shape-1"><img src="images/shape-2-about-v1-values-startup-x-template.svg" alt="" style="-webkit-transform:translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);opacity:0" data-w-id="7914e27c-bc91-662d-b83e-2edb811349da" class="bg about-v1-values-shape-2">
+        </div>
+      </div>
+    </div>
+    
+    <!-- SND CTA SECTION -->
+    <div class="section bg-primary-1 cta-2">
+      <div class="container-default w-container">
+        <div class="cta-2-wrapper">
+          <h2 class="title neutral-100 cta-2">Ready to join the Startup Niger Delta ecosystem? Start your journey today.</h2>
+          <div class="_2-buttons cta-2">
+            <a href="register.html" class="button-primary button-white cta-2 w-inline-block">
+              <div class="cta-2-button-primary-text">Create a <br>free account</div>
+              <div class="cta-2-button-primary-arrow"></div>
+            </a>
+            <a href="contact.html" class="button-secondary button-white cta-2 w-inline-block">
+              <div class="cta-2-button-secondary-text">Talk to <br>our team</div>
+              <div class="cta-2-button-secondary-icon"></div>
+            </a>
+          </div><img src="images/shape-1-cta-2-startup-x-template.svg" alt="" class="bg cta-2-shape-2">
+          <div class="bg cta-2-shape-1"></div><img src="images/shape-2-cta-2-startup-x-template.svg" alt="" class="bg cta-2-shape-3">
+          <div class="bg cta-2-shape-4"></div>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <div class="container-default w-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo-container w-inline-block"><img src="images/Logo.svg" alt="Startup Niger Delta" class="footer-logo"></a>
+            <p class="footer-description">Driving empowerment, training, connecting, and funding startups in the Niger Delta to build sustainable businesses and create economic opportunities across our communities.</p>
+            <div class="_2-buttons footer-cta">
+              <a href="#" class="button-primary _2-buttons-button w-button">Get started</a>
+            </div>
+          </div>
+          
+          <div class="footer-menu-wrapper">
+            <div class="footer-title">Quick Links</div>
+            <div class="footer-menu-content">
+              <ul role="list" class="footer-nav w-list-unstyled">
+                <li class="footer-nav-item">
+                  <a href="index.html" class="footert-nav-link">Home</a>
+                </li>
+                <li class="footer-nav-item">
+                  <a href="organisation.html" class="footert-nav-link">About us</a>
+                </li>
+                <li class="footer-nav-item">
+                  <a href="resources.html" class="footert-nav-link">Resources</a>
+                </li>
+                <li class="footer-nav-item">
+                  <a href="contact.html" class="footert-nav-link">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="footer-menu-wrapper">
+            <div class="footer-title">Ecosystem</div>
+            <div class="footer-menu-content">
+              <ul role="list" class="footer-nav w-list-unstyled">
+                <li class="footer-nav-item">
+                  <a href="startups.html" class="footert-nav-link">Startups</a>
+                </li>
+                <li class="footer-nav-item">
+                  <a href="investors.html" class="footert-nav-link">Investors</a>
+                </li>
+                <li class="footer-nav-item">
+                  <a href="hubs.html" class="footert-nav-link">Hubs</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="footer-menu-wrapper">
+            <div class="footer-title">Stay Connected</div>
+            <div class="footer-menu-content">
+              <div class="footer-social-media-wrapper">
+                <a href="https://www.facebook.com/startupnigerdelta" target="_blank" class="footer-social-media-link"></a>
+                <a href="https://twitter.com/startupnigerdelta" target="_blank" class="footer-social-media-link icon-13px"></a>
+                <a href="https://www.instagram.com/startupnigerdelta" target="_blank" class="footer-social-media-link"></a>
+                <a href="https://www.linkedin.com/company/startupnigerdelta" target="_blank" class="footer-social-media-link icon-15px"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- COPYRIGHT SECTION -->
+    <div class="copyright-section">
+      <div class="container-default w-container">
+        <div class="copyright-content">
+          <div class="copyright-left">
+            <div class="copyright-text">Copyright © Startup Niger Delta right reserved</div>
+          </div>
+          <div class="copyright-right">
+            <a href="#" class="copyright-link">About</a>
+            <a href="#" class="copyright-link">Privacy Policy</a>
+            <a href="#" class="copyright-link">Services</a>
+            <a href="index.html" class="copyright-link">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Back to top button functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        let backToTopButton = document.createElement('div');
+        backToTopButton.innerHTML = '↑';
+        backToTopButton.className = 'back-to-top-button';
+        backToTopButton.setAttribute('role', 'button');
+        backToTopButton.setAttribute('aria-label', 'Back to top');
+        backToTopButton.setAttribute('title', 'Back to top');
+        backToTopButton.style.fontSize = '24px';
+        backToTopButton.style.color = '#FFFFFF';
+        backToTopButton.style.fontWeight = 'bold';
+        document.body.appendChild(backToTopButton);
+        
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+          } else {
+            backToTopButton.classList.remove('visible');
+          }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=699dd5ec837e128eec291cba" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script>
+    // Scroll animations
+    function handleScrollAnimations() {
+      const elements = [
+        { selector: '.header', threshold: 0.1 },
+        { selector: '.brand', threshold: 0.1 },
+        { selector: '.nav-menu', threshold: 0.1 },
+        { selector: '.header-button', threshold: 0.1 }
+      ];
+      
+      elements.forEach(item => {
+        const elements = document.querySelectorAll(item.selector);
+        elements.forEach(element => {
+          if (element) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  element.classList.add('visible');
+                }
+              });
+            }, { threshold: item.threshold });
+            
+            observer.observe(element);
+          }
+        });
+      });
+    }
+    
+    // Run when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      handleScrollAnimations();
+    });
+  </script>
+</body>
+</html>
